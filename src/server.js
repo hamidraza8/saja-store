@@ -22,8 +22,8 @@ const ADMIN_KEY = process.env.ADMIN_KEY || 'change-me';
 const CUSTOM_FEE_AED = 60;
 const PROMOS = { SAJA20: 0.2, EID15: 0.15 };
 
-// Seed products on first boot
-if (db.listProducts().length === 0) db.seed();
+// Seed/update products on every boot (upserts, safe for existing data)
+db.seed();
 
 // ----------------------------------------------------------- public API
 app.use('/api/', apiLimiter);
