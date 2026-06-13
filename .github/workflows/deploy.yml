@@ -34,6 +34,9 @@ jobs:
 
             cd deployment
             docker compose up -d --build --remove-orphans
+            # Sync products.json into the persistent volume (volume overlays /app/data)
+            docker cp /opt/saja-store/data/products.json saja-saja-store-1:/app/data/products.json
+            docker exec saja-saja-store-1 node -e "require('./src/db').seed()"
             docker image prune -f
 
             echo "SAJA deployment complete!"
