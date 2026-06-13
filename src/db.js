@@ -7,10 +7,11 @@ const DB_PATH = path.join(__dirname, '..', 'data', 'saja.db');
 const db = new DatabaseSync(DB_PATH);
 
 db.exec(`
+DROP TABLE IF EXISTS products;
 CREATE TABLE IF NOT EXISTS products (
   handle TEXT PRIMARY KEY,
   name TEXT NOT NULL,
-  tier TEXT NOT NULL CHECK(tier IN ('essentials','signature','atelier')),
+  tier TEXT NOT NULL,
   price_aed REAL NOT NULL,
   compare_aed REAL,
   description TEXT,
@@ -18,6 +19,7 @@ CREATE TABLE IF NOT EXISTS products (
   colors TEXT NOT NULL,    -- JSON array
   sizes TEXT NOT NULL,     -- JSON array
   image TEXT,
+  images TEXT,             -- JSON array of image paths
   active INTEGER NOT NULL DEFAULT 1
 );
 CREATE TABLE IF NOT EXISTS orders (
@@ -45,19 +47,20 @@ CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status);
 
 function seed() {
   const products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf8'));
-  const up = db.prepare(`INSERT INTO products (handle,name,tier,price_aed,compare_aed,description,fabrics,colors,sizes,image)
-    VALUES (?,?,?,?,?,?,?,?,?,?)
+  const up = db.prepare(`INSERT INTO products (handle,name,tier,price_aed,compare_aed,description,fabrics,colors,sizes,image,images)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?)
     ON CONFLICT(handle) DO UPDATE SET name=excluded.name, tier=excluded.tier,
       price_aed=excluded.price_aed, compare_aed=excluded.compare_aed, description=excluded.description,
-      fabrics=excluded.fabrics, colors=excluded.colors, sizes=excluded.sizes, image=excluded.image`);
+      fabrics=excluded.fabrics, colors=excluded.colors, sizes=excluded.sizes, image=excluded.image, images=excluded.images`);
   for (const p of products) {
     up.run(p.handle, p.name, p.tier, p.price, p.compare, p.desc,
-      JSON.stringify(p.fabrics), JSON.stringify(p.colors), JSON.stringify(p.sizes), p.img);
+      JSON.stringify(p.fabrics), JSON.stringify(p.colors), JSON.stringify(p.sizes), p.img,
+      JSON.stringify(p.imgs || [p.img]));
   }
   return products.length;
 }
 
-const parse = r => r && ({ ...r, fabrics: JSON.parse(r.fabrics), colors: JSON.parse(r.colors), sizes: JSON.parse(r.sizes) });
+const parse = r => r && ({ ...r, fabrics: JSON.parse(r.fabrics), colors: JSON.parse(r.colors), sizes: JSON.parse(r.sizes), images: r.images ? JSON.parse(r.images) : [r.image] });
 
 module.exports = {
   seed,

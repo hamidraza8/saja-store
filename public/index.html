@@ -101,7 +101,7 @@ header{position:sticky;top:0;z-index:60;background:var(--white);height:60px;disp
 @media(max-width:768px){.pdp-gallery{grid-template-columns:1fr}}
 .gal-img{overflow:hidden;border-radius:var(--radius);background:var(--cream);aspect-ratio:2/3}
 .gal-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.gal-img:first-child{grid-column:1/-1;aspect-ratio:3/4}
+.gal-img.gal-hero{grid-column:1/-1;aspect-ratio:3/4}
 
 .breadcrumb{font-size:11px;color:var(--muted);margin-bottom:16px;letter-spacing:.3px}
 .breadcrumb a{color:var(--gold);cursor:pointer}
@@ -251,7 +251,7 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
   <div class="hero">
     <div class="hero-slides" id="heroSlides">
       <div class="hero-slide">
-        <img src="https://images.pexels.com/photos/13791265/pexels-photo-13791265.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="SAJA Collection">
+        <img src="/products/lace/Black/c-2351-black-crystal-lace-abaya.jpg" alt="SAJA Collection">
         <div class="hero-overlay"><div class="hero-text">
           <h1>Stillness, worn.</h1>
           <p>Minimal abayas, custom-fitted in our Karachi atelier. Precision over embellishment.</p>
@@ -259,19 +259,19 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
         </div></div>
       </div>
       <div class="hero-slide">
-        <img src="https://images.pexels.com/photos/13838838/pexels-photo-13838838.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Atelier">
+        <img src="/products/premium-gold/Black Gold/c-2273-01-premium-black-gold-abaya.png" alt="Premium Gold">
         <div class="hero-overlay"><div class="hero-text">
-          <h1>Made to Your Measurements</h1>
-          <p>6-point custom fitting confirmed on WhatsApp. Delivered in 10-14 days.</p>
-          <button class="hero-btn" onclick="renderTabs('atelier');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Atelier</button>
+          <h1>Premium Gold Collection</h1>
+          <p>Gold jacquard motifs on luxurious black. Statement evening wear.</p>
+          <button class="hero-btn" onclick="renderTabs('premium');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Premium</button>
         </div></div>
       </div>
       <div class="hero-slide">
-        <img src="https://images.pexels.com/photos/13791268/pexels-photo-13791268.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Essentials">
+        <img src="/products/dantel/Butterscotch/butterscotch_dantel_abaya.png" alt="Dantel Collection">
         <div class="hero-overlay"><div class="hero-text">
-          <h1>Essentials from Rs. 16,644</h1>
-          <p>Premium Nida. Ready to wear. No-iron. Ships in 2-4 days across Pakistan.</p>
-          <button class="hero-btn" onclick="renderTabs('essentials');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Essentials</button>
+          <h1>Dantel Collection</h1>
+          <p>Intricate lace trim detailing. 9 colours. Ready to wear across Pakistan.</p>
+          <button class="hero-btn" onclick="renderTabs('dantel');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Dantel</button>
         </div></div>
       </div>
     </div>
@@ -351,9 +351,11 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
     </div>
     <div><h4>Shop</h4><ul>
       <li onclick="go('/');renderTabs('all')">All Abayas</li>
-      <li onclick="go('/');renderTabs('essentials')">Essentials</li>
-      <li onclick="go('/');renderTabs('signature')">Signature</li>
-      <li onclick="go('/');renderTabs('atelier')">Atelier</li>
+      <li onclick="go('/');renderTabs('dantel')">Dantel</li>
+      <li onclick="go('/');renderTabs('lace')">Lace</li>
+      <li onclick="go('/');renderTabs('embroidered')">Embroidered</li>
+      <li onclick="go('/');renderTabs('printed')">Printed</li>
+      <li onclick="go('/');renderTabs('premium')">Premium Gold</li>
     </ul></div>
     <div><h4>Help</h4><ul>
       <li onclick="go('/track')">Track Order</li>
@@ -389,7 +391,7 @@ const FABRIC_INFO={
   'Lined Chiffon':{desc:'Sheer chiffon with full lining. 90+130 GSM. Dry clean.'},
   'Linen Mix':{desc:'Breathable cotton-linen blend. 170 GSM. Machine wash cold.'}
 };
-const TIER_LABELS={essentials:'Essentials',signature:'Signature',atelier:'Atelier'};
+const TIER_LABELS={dantel:'Dantel',lace:'Lace',embroidered:'Embroidered',floral:'Floral',crepe:'Crepe',plain:'Plain',premium:'Premium Gold',printed:'Printed'};
 
 let heroIdx=0;
 function initHero(){const s=$('heroSlides');if(!s)return;const n=s.children.length;$('heroDots').innerHTML=Array.from({length:n},(_,i)=>`<button class="hero-dot ${i===0?'on':''}" onclick="goHero(${i})"></button>`).join('');setInterval(()=>goHero((heroIdx+1)%n),5000);}
@@ -403,7 +405,7 @@ async function boot(){
   const[p,c]=await Promise.all([fetch('/api/products').then(r=>r.json()),fetch('/api/config').then(r=>r.json())]);
   PRODUCTS=p;CONFIG=c;setCurBtn();updateCount();
   $('footerWa').onclick=()=>window.open('https://wa.me/'+CONFIG.whatsapp,'_blank');
-  $('navBar').innerHTML=[['all','All'],['essentials','Essentials'],['signature','Signature'],['atelier','Atelier']].map(([k,l])=>`<a onclick="go('/');setTimeout(()=>renderTabs('${k}'),50);document.getElementById('shop').scrollIntoView({behavior:'smooth'})">${l}</a>`).join('');
+  $('navBar').innerHTML=[['all','All'],['dantel','Dantel'],['lace','Lace'],['embroidered','Embroidered'],['floral','Floral'],['printed','Printed'],['plain','Plain'],['premium','Premium']].map(([k,l])=>`<a onclick="go('/');setTimeout(()=>renderTabs('${k}'),50);document.getElementById('shop').scrollIntoView({behavior:'smooth'})">${l}</a>`).join('');
   renderTabs('all');initHero();route();
 }
 function setCurBtn(){$('curBtn').textContent=country==='PK'?'PKR':'AED';}
@@ -413,13 +415,13 @@ function updateCount(){$('cartCount').textContent=cart.length;}
 
 let curTab='all';
 function renderTabs(t){
-  curTab=t;const tabs=[['all','All'],['essentials','Essentials'],['signature','Signature'],['atelier','Atelier']];
+  curTab=t;const tabs=[['all','All'],['dantel','Dantel'],['lace','Lace'],['embroidered','Embroidered'],['floral','Floral'],['printed','Printed'],['crepe','Crepe'],['plain','Plain'],['premium','Premium']];
   $('tabs').innerHTML=tabs.map(([k,l])=>`<button class="ftab ${k===t?'on':''}" onclick="renderTabs('${k}')">${l}</button>`).join('');
   [...$('navBar').children].forEach((n,i)=>n.classList.toggle('on',tabs[i]&&tabs[i][0]===t));
   const list=PRODUCTS.filter(p=>t==='all'||p.tier===t);
   $('grid').innerHTML=list.map(p=>`
     <div class="pc" onclick="go('/product/${p.handle}')">
-      <div class="pc-img"><img loading="lazy" src="${p.image}?auto=compress&cs=tinysrgb&w=500" alt="${p.name}">${p.compare_aed?'<div class="pc-sale">Sale</div>':''}</div>
+      <div class="pc-img"><img loading="lazy" src="${p.image}" alt="${p.name}">${p.compare_aed?'<div class="pc-sale">Sale</div>':''}</div>
       <div class="pc-body"><div class="pc-name">${p.name}</div><div class="pc-sub">${p.fabrics[0]}</div><div class="pc-price">${fmt(px(p.price_aed))}${p.compare_aed?`<s>${fmt(px(p.compare_aed))}</s>`:''}</div></div>
     </div>`).join('');
 }
@@ -431,7 +433,8 @@ function renderProduct(handle){
   sel={handle,fabric:p.fabrics[0],color:p.colors[0],size:isAtelier?'Custom':(p.sizes[1]||p.sizes[0]),custom:isAtelier,qty:1};
   document.title='SAJA — '+p.name;
   $('pdp-crumb').innerHTML=`<a onclick="go('/')">Home</a> / <a onclick="go('/');setTimeout(()=>renderTabs('${p.tier}'),50)">${TIER_LABELS[p.tier]}</a> / ${p.name}`;
-  $('pdp-gallery').innerHTML=`<div class="gal-img"><img src="${p.image}?auto=compress&cs=tinysrgb&w=1000" alt="${p.name}"></div><div class="gal-img"><img src="${p.image}?auto=compress&cs=tinysrgb&w=600" alt="" style="object-position:center 60%"></div><div class="gal-img"><img src="${p.image}?auto=compress&cs=tinysrgb&w=600" alt="" style="object-position:center 80%"></div>`;
+  const imgs=p.images||[p.image];
+  $('pdp-gallery').innerHTML=imgs.map((img,i)=>`<div class="gal-img${i===0?' gal-hero':''}"><img src="${img}" alt="${p.name}"></div>`).join('');
   $('pdp-info').innerHTML=`
     <div class="pi-tier">${TIER_LABELS[p.tier]}</div>
     <h1>${p.name}</h1>
@@ -451,7 +454,7 @@ function renderProduct(handle){
       <div class="acc-item"><div class="acc-head" onclick="this.parentElement.classList.toggle('open')">Returns</div><div class="acc-body">Exchange within 7 days (unworn, tags attached). Custom pieces covered by our remake guarantee.</div></div>
     </div>`;
   const rel=PRODUCTS.filter(x=>x.tier===p.tier&&x.handle!==handle).slice(0,4);
-  $('pdp-related').innerHTML=rel.length?`<div style="font-family:var(--heading);font-size:24px;font-weight:400;margin-bottom:20px">You May Also Like</div><div class="pgrid">${rel.map(r=>`<div class="pc" onclick="go('/product/${r.handle}')"><div class="pc-img"><img loading="lazy" src="${r.image}?auto=compress&cs=tinysrgb&w=500" alt="${r.name}"></div><div class="pc-body"><div class="pc-name">${r.name}</div><div class="pc-price">${fmt(px(r.price_aed))}</div></div></div>`).join('')}</div>`:'';
+  $('pdp-related').innerHTML=rel.length?`<div style="font-family:var(--heading);font-size:24px;font-weight:400;margin-bottom:20px">You May Also Like</div><div class="pgrid">${rel.map(r=>`<div class="pc" onclick="go('/product/${r.handle}')"><div class="pc-img"><img loading="lazy" src="${r.image}" alt="${r.name}"></div><div class="pc-body"><div class="pc-name">${r.name}</div><div class="pc-price">${fmt(px(r.price_aed))}</div></div></div>`).join('')}</div>`:'';
 }
 
 function pickFabric(f,el){sel.fabric=f;[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');$('fabricName').textContent=f;$('fabricDesc').textContent=FABRIC_INFO[f]?.desc||'';if($('accordFabric'))$('accordFabric').textContent=FABRIC_INFO[f]?.desc||'';}
@@ -467,7 +470,7 @@ async function renderCart(){
   if(!cart.length){$('cartArea').innerHTML=`<div style="text-align:center;padding:60px 0"><p style="color:var(--muted)">Your bag is empty.</p><button class="add-btn" style="max-width:220px;margin:16px auto 0" onclick="go('/')">Continue Shopping</button></div>`;return;}
   const methods=Object.entries(CONFIG.paymentMethods).filter(([k,m])=>m[country]);
   if(!methods.find(([k])=>k===paying))paying=methods[0]?.[0]||'cod';
-  $('cartArea').innerHTML=cart.map((it,i)=>{const p=PRODUCTS.find(x=>x.handle===it.handle);return`<div class="cline"><img src="${p.image}?auto=compress&cs=tinysrgb&w=200" alt="" onclick="go('/product/${p.handle}')"><div class="ci"><b>${p.name}</b><div class="meta">${it.fabric} / ${it.color} / ${it.size}</div><div class="cp">${fmt(px(p.price_aed))}</div><div class="cq"><button onclick="chQty(${i},-1)">&#8722;</button><span>${it.qty}</span><button onclick="chQty(${i},1)">+</button></div></div><button class="rm" onclick="rmItem(${i})">Remove</button></div>`;}).join('')+`
+  $('cartArea').innerHTML=cart.map((it,i)=>{const p=PRODUCTS.find(x=>x.handle===it.handle);return`<div class="cline"><img src="${p.image}" alt="" onclick="go('/product/${p.handle}')"><div class="ci"><b>${p.name}</b><div class="meta">${it.fabric} / ${it.color} / ${it.size}</div><div class="cp">${fmt(px(p.price_aed))}</div><div class="cq"><button onclick="chQty(${i},-1)">&#8722;</button><span>${it.qty}</span><button onclick="chQty(${i},1)">+</button></div></div><button class="rm" onclick="rmItem(${i})">Remove</button></div>`;}).join('')+`
     <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--line)">
     <div class="field"><label>Promo Code</label><div style="display:flex;gap:8px"><input id="promoIn" placeholder="SAJA20" value="${promo}" style="text-transform:uppercase"><button class="add-btn" style="width:auto;padding:12px 20px;margin:0" onclick="promo=$('promoIn').value;refreshQuote()">Apply</button></div></div>
     <div style="font-family:var(--heading);font-size:22px;font-weight:400;margin:28px 0 14px">Delivery Details</div>
