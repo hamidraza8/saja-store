@@ -3,477 +3,555 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAJA — Modern Abaya Atelier</title>
-<meta name="description" content="Minimal abayas, custom-fitted in our own Karachi atelier. Essentials from PKR 16,644. Free delivery across Pakistan.">
+<meta name="description" content="Minimal abayas, custom-fitted in our own Karachi atelier. Essentials from Rs. 16,644. Free delivery across Pakistan.">
 <meta name="theme-color" content="#1A1A1C">
 <meta property="og:title" content="SAJA — Stillness, worn.">
-<meta property="og:description" content="Minimal abayas, custom-fitted in our own Karachi atelier. Handcrafted with precision.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://saja.torin.pk">
-<meta property="og:image" content="https://images.pexels.com/photos/13862203/pexels-photo-13862203.jpeg?auto=compress&cs=tinysrgb&w=1200">
+<meta property="og:description" content="Minimal abayas, custom-fitted in our own Karachi atelier.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://saja.torin.pk">
 <link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'><circle cx='70' cy='70' r='62' fill='none' stroke='%231A1A1C' stroke-width='5'/><path d='M70 22C56 46 86 58 70 80C56 100 84 108 70 122' fill='none' stroke='%231A1A1C' stroke-width='7' stroke-linecap='round'/><circle cx='94' cy='38' r='5' fill='%23A8956B'/></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1A1A1C;--paper:#FAF8F3;--card:#fff;--sand:#A8956B;--sand-soft:#F1EBDD;--line:#E8E3D8;--muted:#8A8378;--red:#9C3D3D;--display:'Marcellus',Georgia,serif;--body:'Outfit',system-ui,sans-serif;--arabic:'Noto Naskh Arabic',serif}
+:root{--ink:#1A1A1C;--paper:#FFFFFF;--bg:#FAF8F3;--sand:#A8956B;--sand-soft:#F1EBDD;--line:#E8E3D8;--muted:#8A8378;--red:#9C3D3D;--display:'Marcellus',Georgia,serif;--body:'Outfit',system-ui,sans-serif;--arabic:'Noto Naskh Arabic',serif}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.wrap-sm{max-width:640px;margin:0 auto;padding:0 20px}
 
-/* ---- Header ---- */
-header{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+/* ============ ANNOUNCEMENT BAR ============ */
+.ann-bar{background:var(--ink);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:500;letter-spacing:.8px}
+.ann-bar strong{color:var(--sand);font-weight:700}
+
+/* ============ HEADER ============ */
+header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
+.hdr-wrap{max-width:1320px;margin:0 auto;padding:0 24px}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer}
-.logo svg{width:32px;height:32px}
-.logo .word{font-family:var(--display);font-size:20px;letter-spacing:6px}
-.logo .word small{display:block;font-size:8px;letter-spacing:2.5px;color:var(--muted);font-family:var(--body);font-weight:500}
-.nav-right{display:flex;gap:8px;align-items:center}
-.pill{border:1px solid var(--line);background:var(--card);border-radius:999px;font-family:var(--body);font-size:12px;font-weight:600;padding:7px 14px;cursor:pointer;color:var(--ink);transition:all .2s}
-.pill:hover{border-color:var(--ink)}
-.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
-.pill.dark:hover{background:#333}
-.pill.sand{background:var(--sand);color:#fff;border-color:var(--sand)}
+.logo svg{width:34px;height:34px}
+.logo-text{font-family:var(--display);font-size:22px;letter-spacing:8px;line-height:1}
+.logo-text small{display:block;font-size:7.5px;letter-spacing:2.5px;color:var(--muted);font-family:var(--body);font-weight:500;margin-top:2px}
+.hdr-actions{display:flex;gap:6px;align-items:center}
+.hdr-btn{border:none;background:none;cursor:pointer;color:var(--ink);font-family:var(--body);font-size:13px;font-weight:500;padding:8px 12px;border-radius:6px;display:flex;align-items:center;gap:6px;transition:background .2s}
+.hdr-btn:hover{background:var(--bg)}
+.hdr-btn svg{width:18px;height:18px}
+.bag-count{background:var(--ink);color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;margin-left:2px}
 
-/* ---- Hero ---- */
-.hero{position:relative;height:70vh;min-height:480px;overflow:hidden;background:#d6d1c8}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,248,243,0) 20%,rgba(26,26,28,.65) 100%)}
-.hero .copy{position:absolute;left:0;right:0;bottom:40px;color:#fff}
-.hero .ar{font-family:var(--arabic);font-size:28px;color:#E8DCBE}
-.hero h1{font-family:var(--display);font-size:clamp(32px,5.5vw,52px);font-weight:400;line-height:1.1;margin:6px 0 8px}
-.hero p{font-size:15px;font-weight:300;opacity:.93;max-width:440px;line-height:1.65}
-.hero .cta{margin-top:20px;border:none;background:var(--sand);color:#1A1A1C;font-family:var(--body);font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;cursor:pointer;transition:transform .2s}
-.hero .cta:hover{transform:scale(1.03)}
+/* Nav bar */
+.nav-bar{display:flex;gap:0;border-top:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.nav-bar::-webkit-scrollbar{display:none}
+.nav-link{padding:12px 20px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
+.nav-link:hover,.nav-link.on{color:var(--ink);border-bottom-color:var(--ink)}
 
-/* ---- Ticker ---- */
-.ticker{border-bottom:1px solid var(--line);padding:12px 0;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:center}
+/* ============ HERO CAROUSEL ============ */
+.hero-carousel{position:relative;overflow:hidden;background:var(--bg)}
+.hero-slides{display:flex;transition:transform .5s ease}
+.hero-slide{min-width:100%;position:relative}
+.hero-slide img{width:100%;height:520px;object-fit:cover;object-position:center 30%}
+@media(max-width:768px){.hero-slide img{height:380px}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,26,28,.7) 0%,rgba(26,26,28,.15) 60%,transparent 100%);display:flex;align-items:center}
+.hero-content{max-width:1320px;margin:0 auto;padding:0 40px;color:#fff;width:100%}
+.hero-content .ar{font-family:var(--arabic);font-size:26px;color:var(--sand)}
+.hero-content h2{font-family:var(--display);font-size:clamp(28px,4.5vw,48px);font-weight:400;line-height:1.15;margin:6px 0 10px}
+.hero-content p{font-size:14px;font-weight:300;opacity:.9;max-width:380px;line-height:1.65}
+.hero-cta{display:inline-block;margin-top:18px;background:#fff;color:var(--ink);font-family:var(--body);font-weight:700;font-size:13px;padding:13px 32px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s}
+.hero-cta:hover{background:var(--sand);color:#fff}
+.hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;border:none;transition:background .3s}
+.hero-dot.on{background:#fff}
 
-/* ---- Sections ---- */
-.section{padding:40px 0 10px}
-.eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sand);font-weight:700}
-h2{font-family:var(--display);font-size:28px;font-weight:400;margin-top:4px}
-.tabs{display:flex;gap:8px;margin:18px 0 6px;flex-wrap:wrap}
-.tab{padding:8px 18px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;transition:all .2s}
-.tab:hover{border-color:var(--ink);color:var(--ink)}
-.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* ============ SECTION LAYOUTS ============ */
+.container{max-width:1320px;margin:0 auto;padding:0 24px}
+.section{padding:48px 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px}
+.section-head h2{font-family:var(--display);font-size:26px;font-weight:400}
+.section-head .view-all{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--sand);cursor:pointer;border-bottom:1px solid var(--sand);padding-bottom:2px}
 
-/* ---- Product Grid ---- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:16px 0 40px}
-.p-card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s}
-.p-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(26,26,28,.08)}
-.p-card .ph{aspect-ratio:3/4;overflow:hidden;background:#e6e1d6}
-.p-card .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .5s}
-.p-card:hover .ph img{transform:scale(1.06)}
-.p-card .info{padding:13px 15px 15px}
-.p-card .tier{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sand);font-weight:700}
-.p-card .nm{font-size:15px;font-weight:600;margin-top:2px}
-.p-card .pr{font-size:13px;color:var(--muted);margin-top:4px}
-.p-card .pr b{color:var(--ink);font-size:14px}
-.p-card .pr s{margin-left:6px;font-size:11px}
+/* USP Strip */
+.usp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:768px){.usp-strip{grid-template-columns:repeat(2,1fr)}}
+.usp{text-align:center;padding:24px 16px;border-right:1px solid var(--line)}
+.usp:last-child{border-right:none}
+.usp-icon{font-size:22px;margin-bottom:8px}
+.usp h4{font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:3px}
+.usp p{font-size:11px;color:var(--muted);line-height:1.5}
 
-/* ---- Product Detail ---- */
-.pdp{padding:30px 0 50px}
-.pdp-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-@media(max-width:768px){.pdp-grid{grid-template-columns:1fr;gap:24px}}
-.pdp-images{position:sticky;top:80px}
-.pdp-main-img{border-radius:16px;overflow:hidden;background:#e6e1d6;aspect-ratio:3/4}
-.pdp-main-img img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.pdp-thumbs{display:flex;gap:8px;margin-top:10px}
-.pdp-thumbs .thumb{width:72px;height:90px;border-radius:10px;overflow:hidden;border:2px solid var(--line);cursor:pointer;transition:border-color .2s}
-.pdp-thumbs .thumb.on{border-color:var(--ink)}
-.pdp-thumbs .thumb img{width:100%;height:100%;object-fit:cover}
-@media(max-width:768px){.pdp-images{position:static}}
+/* ============ PRODUCT GRID ============ */
+.p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1024px){.p-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.p-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
 
-.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:16px;font-weight:400}
-.breadcrumb a{color:var(--sand);font-weight:500}
+.p-card{cursor:pointer;position:relative}
+.p-card .p-img{position:relative;aspect-ratio:2/3;overflow:hidden;background:#f0ece4}
+.p-card .p-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .6s ease}
+.p-card:hover .p-img img{transform:scale(1.04)}
+.p-card .p-badge{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px}
+.p-card .p-body{padding:12px 2px 8px}
+.p-card .p-tier{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--sand);font-weight:600}
+.p-card .p-name{font-size:14px;font-weight:600;margin:3px 0 2px;line-height:1.3}
+.p-card .p-fabric{font-size:11.5px;color:var(--muted);font-weight:400}
+.p-card .p-price{font-size:14px;font-weight:700;margin-top:6px}
+.p-card .p-price s{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px;text-decoration:line-through}
+.p-card .p-colors{display:flex;gap:4px;margin-top:6px}
+.p-card .p-dot{width:14px;height:14px;border-radius:50%;border:1px solid var(--line)}
+
+/* Wishlist btn on card */
+.p-card .p-wish{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;display:grid;place-items:center;opacity:0;transition:opacity .2s}
+.p-card:hover .p-wish{opacity:1}
+
+/* ============ CATEGORY BANNERS ============ */
+.cat-banners{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:768px){.cat-banners{grid-template-columns:1fr;gap:12px}}
+.cat-banner{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/5}
+.cat-banner img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat-banner:hover img{transform:scale(1.04)}
+.cat-banner .cb-label{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(26,26,28,.7));color:#fff}
+.cat-banner .cb-label h3{font-family:var(--display);font-size:22px;font-weight:400}
+.cat-banner .cb-label span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;opacity:.85}
+
+/* ============ FILTER BAR (product listing) ============ */
+.filter-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.filter-bar .count{font-size:13px;color:var(--muted)}
+.filter-bar .sort{border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-family:var(--body);font-size:12px;font-weight:500;background:#fff;color:var(--ink);cursor:pointer}
+.filter-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.f-tab{padding:7px 16px;border:1px solid var(--line);font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--muted);transition:all .2s}
+.f-tab:hover{border-color:var(--ink);color:var(--ink)}
+.f-tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ============ PRODUCT DETAIL PAGE ============ */
+.pdp{padding:30px 0 60px}
+.pdp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.pdp-grid{grid-template-columns:1fr;gap:20px}}
+.pdp-gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:768px){.pdp-gallery{grid-template-columns:1fr}}
+.pdp-gallery .gal-img{aspect-ratio:2/3;overflow:hidden;background:#f0ece4}
+.pdp-gallery .gal-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.pdp-gallery .gal-img:first-child{grid-column:1/-1;aspect-ratio:3/4}
+
+.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:20px}
+.breadcrumb a{color:var(--sand);cursor:pointer}
 .breadcrumb a:hover{text-decoration:underline}
 
-.pdp-info .tier-badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--sand-soft);color:#6e5e38}
-.pdp-info h1{font-family:var(--display);font-size:32px;font-weight:400;margin:10px 0 6px}
-.pdp-info .price{font-size:22px;font-weight:700;font-family:var(--display)}
-.pdp-info .price s{font-size:15px;color:var(--muted);font-weight:400;margin-left:8px}
-.pdp-info .desc{font-size:14px;color:var(--muted);line-height:1.7;margin:14px 0 20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.pdp-info{position:sticky;top:100px}
+@media(max-width:768px){.pdp-info{position:static}}
+.pdp-info .p-tier{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sand);font-weight:700}
+.pdp-info h1{font-family:var(--display);font-size:30px;font-weight:400;margin:8px 0}
+.pdp-info .price{font-size:24px;font-weight:700}
+.pdp-info .price s{font-size:16px;color:var(--muted);font-weight:400;margin-left:8px}
+.pdp-info .desc{font-size:13.5px;color:var(--muted);line-height:1.75;margin:16px 0 24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
 
-.opt-section{margin-bottom:20px}
-.opt-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.opt-label .val{color:var(--ink);text-transform:none;letter-spacing:0;font-size:13px}
+.opt-section{margin-bottom:22px}
+.opt-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.opt-label .val{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0;font-size:12px}
 .opts{display:flex;gap:8px;flex-wrap:wrap}
-.opt{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s}
+.opt{padding:10px 20px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;font-family:var(--body)}
 .opt:hover{border-color:var(--ink)}
 .opt.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.opt-desc{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5;font-weight:300}
+.opt-desc{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.55}
 
-.dot{width:40px;height:40px;border-radius:50%;cursor:pointer;border:2px solid var(--line);transition:all .2s}
+.dot{width:36px;height:36px;border-radius:50%;cursor:pointer;border:2px solid var(--line);transition:all .2s}
 .dot:hover{border-color:#999}
-.dot.on{outline:3px solid var(--sand-soft);border-color:var(--ink)}
+.dot.on{border-color:var(--ink);box-shadow:0 0 0 3px var(--sand-soft)}
 
-.size-guide-link{font-size:12px;color:var(--sand);cursor:pointer;font-weight:600;text-decoration:underline;text-underline-offset:2px}
-.custom-check{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;margin-top:10px;transition:all .2s}
-.custom-check:hover{border-color:var(--sand)}
-.custom-check.on{border-color:var(--sand);background:var(--sand-soft)}
-.custom-check input{width:auto;accent-color:var(--sand)}
+.sg-link{font-size:12px;color:var(--sand);cursor:pointer;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+.custom-toggle{display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid var(--line);background:#fff;cursor:pointer;margin-top:10px;transition:all .2s}
+.custom-toggle:hover{border-color:var(--sand)}
+.custom-toggle.on{border-color:var(--ink);background:var(--sand-soft)}
+.custom-toggle input[type=checkbox]{width:auto;accent-color:var(--ink)}
 
 .measures{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .measures label{font-size:11px;color:var(--muted);font-weight:500;display:block;margin-bottom:4px}
-input,select,textarea{border:1px solid var(--line);border-radius:10px;padding:12px;font-family:var(--body);font-size:14px;background:var(--card);color:var(--ink);width:100%;transition:border-color .2s}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(26,26,28,.06)}
+input,select,textarea{border:1px solid var(--line);padding:12px 14px;font-family:var(--body);font-size:14px;background:#fff;color:var(--ink);width:100%;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink)}
 textarea{resize:vertical;min-height:60px}
 
-.qty-row{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-.qty-row button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:16px;font-weight:600;transition:all .2s;display:grid;place-items:center}
-.qty-row button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.qty-row span{font-size:18px;font-weight:600;min-width:24px;text-align:center}
+.qty-row{display:flex;align-items:center;border:1px solid var(--line);width:fit-content}
+.qty-row button{width:42px;height:42px;border:none;background:#fff;cursor:pointer;font-size:16px;font-weight:600;transition:background .15s;font-family:var(--body)}
+.qty-row button:hover{background:var(--bg)}
+.qty-row span{width:42px;text-align:center;font-size:15px;font-weight:600;border-left:1px solid var(--line);border-right:1px solid var(--line);line-height:42px}
 
-.add-btn{width:100%;border:none;background:var(--ink);color:#fff;font-family:var(--body);font-weight:700;font-size:15px;padding:16px;border-radius:999px;cursor:pointer;transition:all .2s;margin-top:16px}
-.add-btn:hover{background:#333;transform:scale(1.01)}
-.add-btn span{color:var(--sand)}
-.add-btn:disabled{opacity:.5;cursor:not-allowed}
+.add-btn{width:100%;border:none;background:var(--ink);color:#fff;font-family:var(--body);font-weight:700;font-size:14px;padding:16px;cursor:pointer;transition:background .2s;letter-spacing:.5px;text-transform:uppercase;margin-top:20px}
+.add-btn:hover{background:#333}
+.add-btn:disabled{opacity:.4;cursor:not-allowed}
 
-.pdp-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
-.pdp-feat{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--muted);line-height:1.5}
-.pdp-feat .icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.pdp-accord{border-top:1px solid var(--line);margin-top:28px}
+.accord-item{border-bottom:1px solid var(--line)}
+.accord-head{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.accord-head:after{content:'+';font-size:18px;font-weight:300}
+.accord-item.open .accord-head:after{content:'\2212'}
+.accord-body{display:none;padding:0 0 16px;font-size:13px;color:var(--muted);line-height:1.7}
+.accord-item.open .accord-body{display:block}
 
-.measure-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6;font-weight:300;padding:12px;background:var(--sand-soft);border-radius:10px}
+.measure-note{font-size:12px;color:#6e5e38;margin-top:12px;line-height:1.6;padding:14px 16px;background:var(--sand-soft)}
 
-/* ---- Related ---- */
-.related{padding:30px 0 40px;border-top:1px solid var(--line);margin-top:40px}
-
-/* ---- Cart / Checkout ---- */
-.cartline{display:flex;gap:14px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 14px;margin-bottom:10px}
-.cartline img{width:56px;height:70px;object-fit:cover;border-radius:10px}
+/* ============ CART ============ */
+.cart-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+.cartline{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.cartline img{width:80px;height:106px;object-fit:cover;cursor:pointer}
 .cartline .ci{flex:1;font-size:13px}
-.cartline .ci b{display:block;font-size:14px}
-.cartline .ci .meta{color:var(--muted);font-size:12px;margin-top:2px}
-.cartline .rm{border:none;background:none;color:var(--muted);cursor:pointer;font-size:18px;padding:4px}
+.cartline .ci b{display:block;font-size:14px;margin-bottom:2px}
+.cartline .ci .meta{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.5}
+.cartline .ci .cp{font-weight:700;margin-top:6px}
+.cartline .rm{border:none;background:none;color:var(--muted);cursor:pointer;font-size:12px;text-decoration:underline;align-self:flex-start;font-family:var(--body)}
 .cartline .rm:hover{color:var(--red)}
-.qty{display:flex;align-items:center;gap:8px}
-.qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:14px;display:grid;place-items:center}
-.qty button:hover{background:var(--ink);color:#fff}
-.field{margin-bottom:12px}
-.field label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.c-qty{display:flex;align-items:center;border:1px solid var(--line);width:fit-content;margin-top:8px}
+.c-qty button{width:30px;height:30px;border:none;background:#fff;cursor:pointer;font-size:14px;font-family:var(--body)}
+.c-qty span{width:30px;text-align:center;font-size:13px;font-weight:600;border-left:1px solid var(--line);border-right:1px solid var(--line);line-height:30px}
+
+.field{margin-bottom:14px}
+.field label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:6px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .paychoice{display:flex;flex-direction:column;gap:8px}
-.paychoice .pc{display:flex;gap:10px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:13px 16px;cursor:pointer;font-size:13.5px;font-weight:500;transition:all .2s}
+.paychoice .pc{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:14px 18px;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
 .paychoice .pc:hover{border-color:var(--ink)}
 .paychoice .pc.on{border-color:var(--ink);background:var(--sand-soft)}
-.totals{border-top:1px dashed var(--line);margin-top:16px;padding-top:14px;font-size:14px}
-.totals .tr{display:flex;justify-content:space-between;margin-bottom:6px;color:var(--muted)}
-.totals .tr.big{color:var(--ink);font-weight:700;font-size:20px;font-family:var(--display);margin-top:6px}
+.totals{border-top:1px solid var(--ink);margin-top:20px;padding-top:16px;font-size:14px}
+.totals .tr{display:flex;justify-content:space-between;margin-bottom:8px;color:var(--muted)}
+.totals .tr.big{color:var(--ink);font-weight:700;font-size:18px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
 .err{color:var(--red);font-size:13px;margin-top:10px;font-weight:500}
 
-/* ---- Order success ---- */
-.ok-screen{text-align:center;padding:30px 6px}
-.ok-screen .tick{width:64px;height:64px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-size:30px;margin:0 auto 16px}
+.ok-screen{text-align:center;padding:40px 0}
+.ok-screen .tick{width:60px;height:60px;background:var(--sand);display:grid;place-items:center;font-size:28px;margin:0 auto 18px;color:#fff}
 .ok-screen h3{font-family:var(--display);font-size:28px;font-weight:400}
-.ok-screen p{color:var(--muted);font-size:14px;margin:12px 0 20px;line-height:1.7}
-.wa{display:inline-block;background:#1FA855;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:14px 24px;border-radius:999px;transition:transform .2s}
-.wa:hover{transform:scale(1.03)}
+.ok-screen p{color:var(--muted);font-size:14px;margin:14px 0 24px;line-height:1.7}
+.wa-btn{display:inline-block;background:#25D366;color:#fff;font-weight:700;font-size:13px;padding:14px 28px;letter-spacing:.5px;text-transform:uppercase;text-decoration:none}
 
-/* ---- Size Guide Modal ---- */
+/* ============ SIZE GUIDE MODAL ============ */
 .modal-overlay{position:fixed;inset:0;background:rgba(26,26,28,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
 .modal-overlay.open{display:flex}
-.modal-box{background:var(--paper);border-radius:18px;padding:24px;max-width:520px;width:100%;max-height:85vh;overflow-y:auto}
-.modal-box .close{float:right;border:none;background:var(--card);border:1px solid var(--line);border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer;display:grid;place-items:center}
-.modal-box h3{font-family:var(--display);font-size:22px;font-weight:400;margin-bottom:14px}
-.sg-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
-.sg-table th{text-align:left;padding:8px 10px;background:var(--ink);color:#fff;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase}
-.sg-table td{padding:8px 10px;border-bottom:1px solid var(--line)}
-.sg-table tr:hover td{background:var(--sand-soft)}
+.modal-box{background:#fff;padding:28px;max-width:520px;width:100%;max-height:85vh;overflow-y:auto}
+.modal-box .close{float:right;border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)}
+.modal-box h3{font-family:var(--display);font-size:22px;font-weight:400;margin-bottom:16px}
+.sg-table{width:100%;border-collapse:collapse;font-size:13px}
+.sg-table th{text-align:left;padding:10px;background:var(--ink);color:#fff;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.sg-table td{padding:10px;border-bottom:1px solid var(--line)}
+.sg-table tr:hover td{background:var(--bg)}
 
-/* ---- Order Tracking ---- */
-.badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;background:var(--sand-soft);color:#6e5e38}
+/* ============ TRACK ============ */
+.badge{display:inline-block;padding:4px 12px;font-size:11px;font-weight:700;background:var(--sand-soft);color:#6e5e38}
 
-/* ---- Footer ---- */
-footer{border-top:1px solid var(--line);margin-top:40px;padding:40px 0;background:var(--ink);color:#fff}
-footer .f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}
-@media(max-width:640px){footer .f-grid{grid-template-columns:1fr;gap:20px}}
-footer .ar{font-family:var(--arabic);color:var(--sand);font-size:22px}
-footer .fb{font-family:var(--display);letter-spacing:5px;font-size:18px;margin-top:2px}
-footer p{font-size:12px;color:rgba(255,255,255,.5);margin-top:8px;line-height:1.7}
-footer h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sand);font-weight:700;margin-bottom:10px}
-footer ul{list-style:none;font-size:13px;color:rgba(255,255,255,.7)}
-footer ul li{margin-bottom:6px;cursor:pointer}
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:#fff;padding:48px 0 0;margin-top:48px}
+.f-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:768px){.f-grid{grid-template-columns:1fr 1fr;gap:24px}}
+@media(max-width:480px){.f-grid{grid-template-columns:1fr}}
+footer .f-brand .ar{font-family:var(--arabic);color:var(--sand);font-size:24px}
+footer .f-brand .fb{font-family:var(--display);letter-spacing:6px;font-size:18px;margin:2px 0 10px}
+footer .f-brand p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.7}
+footer h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sand);font-weight:700;margin-bottom:14px}
+footer ul{list-style:none;font-size:13px;color:rgba(255,255,255,.6)}
+footer ul li{margin-bottom:8px;cursor:pointer;transition:color .2s}
 footer ul li:hover{color:#fff}
-footer .copy{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.3)}
+footer .f-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding:18px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+footer .f-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+footer .f-pay{display:flex;gap:8px;align-items:center;font-size:11px;color:rgba(255,255,255,.4)}
 
-/* ---- Toast ---- */
-.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:28px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:13px 24px;border-radius:999px;opacity:0;transition:all .3s;pointer-events:none;z-index:99;white-space:nowrap}
+/* ============ TOAST ============ */
+.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:28px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:13px 26px;opacity:0;transition:all .3s;pointer-events:none;z-index:99;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ---- View containers ---- */
-.view{display:none}
-.view.active{display:block}
+.view{display:none}.view.active{display:block}
 </style>
 </head>
 <body>
 
-<header><div class="wrap nav">
-  <div class="logo" onclick="go('/')">
-    <svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="62" fill="none" stroke="#1A1A1C" stroke-width="5"/><path d="M70 22 C56 46 86 58 70 80 C56 100 84 108 70 122" fill="none" stroke="#1A1A1C" stroke-width="7" stroke-linecap="round"/><circle cx="94" cy="38" r="5" fill="#A8956B"/></svg>
-    <div class="word">SAJA<small>MODERN ABAYA ATELIER</small></div>
+<!-- Announcement Bar -->
+<div class="ann-bar">Free Delivery Across Pakistan | <strong>Use Code SAJA20 for 20% Off</strong></div>
+
+<!-- Header -->
+<header>
+<div class="hdr-wrap">
+  <div class="hdr-top">
+    <div class="logo" onclick="go('/')">
+      <svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="62" fill="none" stroke="#1A1A1C" stroke-width="5"/><path d="M70 22 C56 46 86 58 70 80 C56 100 84 108 70 122" fill="none" stroke="#1A1A1C" stroke-width="7" stroke-linecap="round"/><circle cx="94" cy="38" r="5" fill="#A8956B"/></svg>
+      <div class="logo-text">SAJA<small>MODERN ABAYA ATELIER</small></div>
+    </div>
+    <div class="hdr-actions">
+      <button class="hdr-btn" onclick="go('/track')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/></svg>Track</button>
+      <button class="hdr-btn" id="curBtn" onclick="toggleCountry()"></button>
+      <button class="hdr-btn" onclick="go('/cart')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="bag-count" id="cartCount">0</span></button>
+    </div>
   </div>
-  <div class="nav-right">
-    <button class="pill" onclick="go('/track')">Track Order</button>
-    <button class="pill dark" id="curBtn" onclick="toggleCountry()"></button>
-    <button class="pill" onclick="go('/cart')" id="bagBtn">Bag · <b id="cartCount">0</b></button>
-  </div>
-</div></header>
+  <nav class="nav-bar" id="navBar"></nav>
+</div>
+</header>
 
 <!-- ============ HOME ============ -->
 <div id="view-home" class="view">
-  <section class="hero">
-    <img src="https://images.pexels.com/photos/9880858/pexels-photo-9880858.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="SAJA abaya">
-    <div class="veil"></div>
-    <div class="wrap copy">
-      <div class="ar">سَجَى</div>
-      <h1>Stillness, worn.</h1>
-      <p>"By the night, when it grows still." Minimal abayas, custom-fitted in our own Karachi atelier. Precision-cut, delivered to your door.</p>
-      <button class="cta" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop the Collection</button>
+
+  <!-- Hero Carousel -->
+  <div class="hero-carousel">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide">
+        <img src="https://images.pexels.com/photos/9880858/pexels-photo-9880858.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="SAJA Collection">
+        <div class="hero-overlay"><div class="hero-content">
+          <div class="ar">سَجَى</div>
+          <h2>Stillness, worn.</h2>
+          <p>Minimal abayas, custom-fitted in our Karachi atelier. Precision over embellishment.</p>
+          <button class="hero-cta" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Collection</button>
+        </div></div>
+      </div>
+      <div class="hero-slide">
+        <img src="https://images.pexels.com/photos/9880848/pexels-photo-9880848.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Atelier Custom">
+        <div class="hero-overlay"><div class="hero-content">
+          <h2>Made to Your<br>Measurements</h2>
+          <p>6-point custom fitting. Confirmed on WhatsApp before cutting. Delivered in 10–14 days.</p>
+          <button class="hero-cta" onclick="renderTabs('atelier');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Atelier</button>
+        </div></div>
+      </div>
+      <div class="hero-slide">
+        <img src="https://images.pexels.com/photos/33108120/pexels-photo-33108120.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Essentials">
+        <div class="hero-overlay"><div class="hero-content">
+          <h2>Essentials<br>from Rs. 16,644</h2>
+          <p>Premium Nida. Ready to wear. No-iron. Ships in 2–4 days across Pakistan.</p>
+          <button class="hero-cta" onclick="renderTabs('essentials');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Essentials</button>
+        </div></div>
+      </div>
     </div>
-  </section>
-  <div class="ticker">CUSTOM FIT · NO-IRON NIDA · 10-DAY TAILORING · FREE DELIVERY · COD AVAILABLE</div>
+    <div class="hero-dots" id="heroDots"></div>
+  </div>
 
   <!-- USP Strip -->
-  <div class="wrap" style="padding:28px 20px 0">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
-      <div style="display:flex;gap:12px;align-items:flex-start"><div style="font-size:24px">&#9986;</div><div><div style="font-weight:700;font-size:13px">Made-to-Measure</div><div style="font-size:12px;color:var(--muted);line-height:1.5">6-point custom fitting via WhatsApp. Your body, your abaya.</div></div></div>
-      <div style="display:flex;gap:12px;align-items:flex-start"><div style="font-size:24px">&#10029;</div><div><div style="font-weight:700;font-size:13px">Own Atelier</div><div style="font-size:12px;color:var(--muted);line-height:1.5">Stitched in-house in Karachi. No outsourcing, no mystery.</div></div></div>
-      <div style="display:flex;gap:12px;align-items:flex-start"><div style="font-size:24px">&#9745;</div><div><div style="font-weight:700;font-size:13px">Photo QC</div><div style="font-size:12px;color:var(--muted);line-height:1.5">We send you photos before dispatch. Not right? We remake it.</div></div></div>
-      <div style="display:flex;gap:12px;align-items:flex-start"><div style="font-size:24px">&#128666;</div><div><div style="font-weight:700;font-size:13px">COD Available</div><div style="font-size:12px;color:var(--muted);line-height:1.5">Cash on delivery across Pakistan. JazzCash & bank transfer too.</div></div></div>
-    </div>
+  <div class="usp-strip">
+    <div class="usp"><div class="usp-icon">&#9986;</div><h4>Made-to-Measure</h4><p>Custom fitting via WhatsApp</p></div>
+    <div class="usp"><div class="usp-icon">&#10029;</div><h4>Own Atelier</h4><p>Stitched in-house in Karachi</p></div>
+    <div class="usp"><div class="usp-icon">&#128247;</div><h4>Photo QC</h4><p>We send photos before dispatch</p></div>
+    <div class="usp"><div class="usp-icon">&#128666;</div><h4>COD Available</h4><p>Cash on delivery nationwide</p></div>
   </div>
 
-  <div class="wrap section" id="shop">
-    <div class="eyebrow">The Collection</div><h2>Quiet pieces, precise cuts</h2>
-    <div class="tabs" id="tabs"></div>
-    <div class="grid" id="grid"></div>
-  </div>
+  <!-- Category Banners -->
+  <div class="section"><div class="container">
+    <div class="cat-banners">
+      <div class="cat-banner" onclick="renderTabs('essentials');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+        <img src="https://images.pexels.com/photos/8764298/pexels-photo-8764298.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Essentials">
+        <div class="cb-label"><span>Starting from Rs. 16,644</span><h3>Essentials</h3></div>
+      </div>
+      <div class="cat-banner" onclick="renderTabs('signature');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+        <img src="https://images.pexels.com/photos/32178223/pexels-photo-32178223.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Signature">
+        <div class="cb-label"><span>Starting from Rs. 26,524</span><h3>Signature</h3></div>
+      </div>
+      <div class="cat-banner" onclick="renderTabs('atelier');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+        <img src="https://images.pexels.com/photos/33429343/pexels-photo-33429343.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Atelier">
+        <div class="cb-label"><span>Made to your measurements</span><h3>Atelier — Custom</h3></div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- Product Listing -->
+  <div class="section" id="shop"><div class="container">
+    <div class="section-head"><h2>The Collection</h2></div>
+    <div class="filter-bar">
+      <div class="filter-tabs" id="tabs"></div>
+      <div class="count" id="prodCount"></div>
+    </div>
+    <div class="p-grid" id="grid"></div>
+  </div></div>
 </div>
 
 <!-- ============ PRODUCT DETAIL ============ -->
-<div id="view-product" class="view">
-  <div class="wrap pdp">
-    <div class="breadcrumb"><a onclick="go('/')">Home</a> / <span id="pdp-crumb"></span></div>
-    <div class="pdp-grid">
-      <div class="pdp-images">
-        <div class="pdp-main-img" id="pdp-main-img"></div>
-        <div class="pdp-thumbs" id="pdp-thumbs"></div>
-      </div>
-      <div class="pdp-info" id="pdp-info"></div>
-    </div>
-    <div class="related" id="pdp-related"></div>
+<div id="view-product" class="view"><div class="container pdp">
+  <div class="breadcrumb" id="pdp-crumb"></div>
+  <div class="pdp-grid">
+    <div class="pdp-gallery" id="pdp-gallery"></div>
+    <div class="pdp-info" id="pdp-info"></div>
   </div>
-</div>
+  <div id="pdp-related" style="margin-top:48px"></div>
+</div></div>
 
-<!-- ============ CART / CHECKOUT ============ -->
-<div id="view-cart" class="view">
-  <div class="wrap-sm section">
-    <div class="eyebrow">Your Bag</div><h2>Review & Checkout</h2>
-    <div id="cartArea" style="margin-top:18px"></div>
-  </div>
-</div>
+<!-- ============ CART ============ -->
+<div id="view-cart" class="view"><div class="cart-wrap" style="padding-top:36px;padding-bottom:36px">
+  <h2 style="font-family:var(--display);font-size:26px;font-weight:400;margin-bottom:4px">Shopping Bag</h2>
+  <div id="cartArea"></div>
+</div></div>
 
-<!-- ============ ORDER TRACKING ============ -->
-<div id="view-track" class="view">
-  <div class="wrap-sm section">
-    <div class="eyebrow">Order Tracking</div><h2>Find your order</h2>
-    <div style="margin-top:18px">
-      <div class="field"><label>Order number</label><input id="t_no" placeholder="SJ..."></div>
-      <div class="field"><label>WhatsApp / phone used at checkout</label><input id="t_phone" placeholder="03XX XXXXXXX"></div>
-      <button class="add-btn" onclick="trackOrder()">Track Order</button>
-      <div id="trackResult" style="margin-top:18px"></div>
-    </div>
-  </div>
-</div>
+<!-- ============ TRACK ============ -->
+<div id="view-track" class="view"><div class="cart-wrap" style="padding-top:36px">
+  <h2 style="font-family:var(--display);font-size:26px;font-weight:400;margin-bottom:18px">Track Your Order</h2>
+  <div class="field"><label>Order Number</label><input id="t_no" placeholder="SJ..."></div>
+  <div class="field"><label>Phone Number</label><input id="t_phone" placeholder="03XX XXXXXXX"></div>
+  <button class="add-btn" onclick="trackOrder()">Track Order</button>
+  <div id="trackResult" style="margin-top:20px"></div>
+</div></div>
 
-<!-- ============ Size Guide Modal ============ -->
+<!-- Size Guide Modal -->
 <div class="modal-overlay" id="sizeGuideModal">
-  <div class="modal-box">
-    <button class="close" onclick="$('sizeGuideModal').classList.remove('open')">&#10005;</button>
-    <h3>Size Guide</h3>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:8px">All measurements in centimeters. For the best fit, measure over undergarments.</p>
-    <table class="sg-table">
-      <thead><tr><th>Size</th><th>Shoulder</th><th>Bust</th><th>Sleeve</th><th>Length</th></tr></thead>
-      <tbody>
-        <tr><td>XS</td><td>36</td><td>88</td><td>54</td><td>132</td></tr>
-        <tr><td>S</td><td>38</td><td>92</td><td>55</td><td>135</td></tr>
-        <tr><td>M</td><td>40</td><td>96</td><td>56</td><td>138</td></tr>
-        <tr><td>L</td><td>42</td><td>100</td><td>57</td><td>140</td></tr>
-        <tr><td>XL</td><td>44</td><td>106</td><td>58</td><td>142</td></tr>
-        <tr><td>XXL</td><td>46</td><td>112</td><td>59</td><td>144</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6">Not sure? Choose <b>Made to Measure</b> and our tailor will confirm every measurement on WhatsApp before cutting.</p>
-  </div>
-</div>
+<div class="modal-box">
+  <button class="close" onclick="$('sizeGuideModal').classList.remove('open')">&#10005;</button>
+  <h3>Size Guide</h3>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:12px">All measurements in centimeters.</p>
+  <table class="sg-table">
+    <thead><tr><th>Size</th><th>Shoulder</th><th>Bust</th><th>Sleeve</th><th>Length</th></tr></thead>
+    <tbody>
+      <tr><td>XS</td><td>36</td><td>88</td><td>54</td><td>132</td></tr>
+      <tr><td>S</td><td>38</td><td>92</td><td>55</td><td>135</td></tr>
+      <tr><td>M</td><td>40</td><td>96</td><td>56</td><td>138</td></tr>
+      <tr><td>L</td><td>42</td><td>100</td><td>57</td><td>140</td></tr>
+      <tr><td>XL</td><td>44</td><td>106</td><td>58</td><td>142</td></tr>
+      <tr><td>XXL</td><td>46</td><td>112</td><td>59</td><td>144</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.6">Not sure about your size? Choose <b>Made to Measure</b> and our tailor will confirm every measurement on WhatsApp before cutting.</p>
+</div></div>
 
-<!-- ============ Footer ============ -->
-<footer><div class="wrap">
+<!-- Footer -->
+<footer><div class="container">
   <div class="f-grid">
-    <div>
+    <div class="f-brand">
       <div class="ar">سَجَى</div><div class="fb">SAJA</div>
       <p>Minimal abayas, custom-fitted in our own Karachi atelier. Precision over embellishment. Stillness over noise.</p>
     </div>
-    <div>
-      <h4>Shop</h4>
-      <ul>
-        <li onclick="go('/')">All Abayas</li>
-        <li onclick="go('/#essentials')">Essentials</li>
-        <li onclick="go('/#signature')">Signature</li>
-        <li onclick="go('/#atelier')">Atelier — Custom</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Help</h4>
-      <ul>
-        <li onclick="go('/track')">Track Order</li>
-        <li onclick="$('sizeGuideModal').classList.add('open')">Size Guide</li>
-        <li id="footerWa">WhatsApp Us</li>
-      </ul>
-    </div>
+    <div><h4>Shop</h4><ul>
+      <li onclick="go('/');renderTabs('all')">All Abayas</li>
+      <li onclick="go('/');renderTabs('essentials')">Essentials</li>
+      <li onclick="go('/');renderTabs('signature')">Signature</li>
+      <li onclick="go('/');renderTabs('atelier')">Atelier</li>
+    </ul></div>
+    <div><h4>Customer Care</h4><ul>
+      <li onclick="go('/track')">Track Order</li>
+      <li onclick="$('sizeGuideModal').classList.add('open')">Size Guide</li>
+      <li id="footerWa">WhatsApp Us</li>
+      <li>Shipping &amp; Returns</li>
+    </ul></div>
+    <div><h4>About</h4><ul>
+      <li>Our Story</li>
+      <li>The Atelier</li>
+      <li>Fabrics</li>
+      <li>Contact</li>
+    </ul></div>
   </div>
-  <div class="copy">&copy; 2026 Saja Atelier. Handcrafted in Karachi.</div>
+  <div class="f-bottom">
+    <span>&copy; 2026 Saja Atelier. Handcrafted in Karachi, Pakistan.</span>
+    <div class="f-pay">JazzCash &middot; Easypaisa &middot; Bank Transfer &middot; COD</div>
+  </div>
 </div></footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
-/* ---- State ---- */
-let PRODUCTS=[], CONFIG={whatsapp:'',pkrPerAed:76,paymentMethods:{}};
-let country = localStorage.getItem('saja_country') || 'PK';
-let cart = JSON.parse(localStorage.getItem('saja_cart')||'[]');
+let PRODUCTS=[],CONFIG={whatsapp:'',pkrPerAed:76,paymentMethods:{}};
+let country=localStorage.getItem('saja_country')||'PK';
+let cart=JSON.parse(localStorage.getItem('saja_cart')||'[]');
 const $=id=>document.getElementById(id);
-const cur=()=>country==='PK'?'PKR':'AED';
+const cur=()=>country==='PK'?'Rs.':'AED';
 const px=a=>country==='PK'?Math.round(a*CONFIG.pkrPerAed):a;
 const fmt=a=>cur()+' '+a.toLocaleString();
 const COLOR_HEX={'Midnight Black':'#222226','Charcoal':'#46464e','Mocha':'#6e5544','Stone':'#a9a195','Deep Emerald':'#1d5448','Sage':'#94a58c'};
 const FABRIC_INFO={
-  'Premium Nida':{desc:'Matte finish, no-iron, lightweight — the everyday fabric.',weight:'130 GSM',care:'Machine wash cold'},
-  'Korean Crepe':{desc:'Subtle texture with natural stretch. Premium drape.',weight:'150 GSM',care:'Hand wash recommended'},
-  'Lined Chiffon':{desc:'Sheer chiffon with full lining. Elegant evening weight.',weight:'90+130 GSM',care:'Dry clean'},
-  'Linen Mix':{desc:'Breathable cotton-linen blend. Structured, relaxed.',weight:'170 GSM',care:'Machine wash cold'}
+  'Premium Nida':{desc:'Matte finish, no-iron, lightweight. Our everyday fabric. 130 GSM. Machine wash cold.'},
+  'Korean Crepe':{desc:'Subtle texture with natural stretch. Premium drape. 150 GSM. Hand wash recommended.'},
+  'Lined Chiffon':{desc:'Sheer chiffon with full lining. Elegant evening weight. 90+130 GSM. Dry clean.'},
+  'Linen Mix':{desc:'Breathable cotton-linen blend. Structured, relaxed. 170 GSM. Machine wash cold.'}
 };
-const TIER_LABELS={essentials:'Essentials',signature:'Signature',atelier:'Atelier — Custom'};
+const TIER_LABELS={essentials:'Essentials',signature:'Signature',atelier:'Atelier'};
+
+/* ---- Hero Carousel ---- */
+let heroIdx=0;
+function initHero(){
+  const slides=$('heroSlides');if(!slides)return;
+  const count=slides.children.length;
+  $('heroDots').innerHTML=Array.from({length:count},(_,i)=>`<button class="hero-dot ${i===0?'on':''}" onclick="goHero(${i})"></button>`).join('');
+  setInterval(()=>goHero((heroIdx+1)%count),5000);
+}
+function goHero(i){
+  heroIdx=i;
+  $('heroSlides').style.transform=`translateX(-${i*100}%)`;
+  [...$('heroDots').children].forEach((d,j)=>d.classList.toggle('on',j===i));
+}
 
 /* ---- Router ---- */
-function go(path){
-  if(path.startsWith('/'))location.hash='#'+path;
-  else location.hash=path;
-}
+function go(p){location.hash='#'+(p.startsWith('/')?p:'/'+p);}
 function route(){
-  const hash=location.hash.slice(1)||'/';
+  const h=location.hash.slice(1)||'/';
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   window.scrollTo(0,0);
-
-  if(hash.startsWith('/product/')){
-    const handle=hash.split('/product/')[1];
-    renderProduct(handle);
-    $('view-product').classList.add('active');
-  } else if(hash==='/cart'){
-    renderCart();
-    $('view-cart').classList.add('active');
-  } else if(hash==='/track'){
-    $('view-track').classList.add('active');
-  } else {
-    $('view-home').classList.add('active');
-    if(hash.includes('#')){
-      const tier=hash.split('#')[1];
-      if(tier)setTimeout(()=>renderTabs(tier),50);
-    }
-  }
+  if(h.startsWith('/product/')){renderProduct(h.split('/product/')[1]);$('view-product').classList.add('active');}
+  else if(h==='/cart'){renderCart();$('view-cart').classList.add('active');}
+  else if(h==='/track'){$('view-track').classList.add('active');}
+  else{$('view-home').classList.add('active');}
 }
 window.addEventListener('hashchange',route);
 
 /* ---- Boot ---- */
 async function boot(){
-  const [p,c]=await Promise.all([fetch('/api/products').then(r=>r.json()),fetch('/api/config').then(r=>r.json())]);
-  PRODUCTS=p; CONFIG=c;
-  setCurBtn(); updateCount();
+  const[p,c]=await Promise.all([fetch('/api/products').then(r=>r.json()),fetch('/api/config').then(r=>r.json())]);
+  PRODUCTS=p;CONFIG=c;setCurBtn();updateCount();
   $('footerWa').onclick=()=>window.open('https://wa.me/'+CONFIG.whatsapp,'_blank');
-  renderTabs('all');
-  route();
+  // Nav bar
+  $('navBar').innerHTML=[['all','All Abayas'],['essentials','Essentials'],['signature','Signature'],['atelier','Atelier — Custom']].map(([k,l])=>`<div class="nav-link" onclick="go('/');setTimeout(()=>renderTabs('${k}'),50);document.getElementById('shop').scrollIntoView({behavior:'smooth'})">${l}</div>`).join('');
+  renderTabs('all');initHero();route();
 }
-
-function setCurBtn(){$('curBtn').textContent=country==='PK'?'PKR':'AED';}
-function toggleCountry(){country=country==='AE'?'PK':'AE';localStorage.setItem('saja_country',country);setCurBtn();renderTabs(curTab);toast(country==='PK'?'Showing PKR prices':'Showing AED prices');
-  // Re-render product page if visible
-  if($('view-product').classList.contains('active')&&sel.handle)renderProduct(sel.handle);
-  if($('view-cart').classList.contains('active'))renderCart();
-}
+function setCurBtn(){$('curBtn').innerHTML=country==='PK'?'&#127477;&#127472; PKR':'&#127462;&#127466; AED';}
+function toggleCountry(){country=country==='AE'?'PK':'AE';localStorage.setItem('saja_country',country);setCurBtn();renderTabs(curTab);toast(country==='PK'?'Showing PKR prices':'Showing AED prices');if($('view-product').classList.contains('active')&&sel.handle)renderProduct(sel.handle);if($('view-cart').classList.contains('active'))renderCart();}
 function save(){localStorage.setItem('saja_cart',JSON.stringify(cart));}
 function updateCount(){$('cartCount').textContent=cart.length;}
 
-/* ---- Home / Grid ---- */
+/* ---- Product Grid ---- */
 let curTab='all';
-function renderTabs(sel){
-  curTab=sel;
-  const tiers=[['all','All'],['essentials','Essentials'],['signature','Signature'],['atelier','Atelier']];
-  $('tabs').innerHTML=tiers.map(([k,l])=>`<button class="tab ${k===sel?'on':''}" onclick="renderTabs('${k}')">${l}</button>`).join('');
-  const list=PRODUCTS.filter(p=>sel==='all'||p.tier===sel);
+function renderTabs(t){
+  curTab=t;
+  const tabs=[['all','All'],['essentials','Essentials'],['signature','Signature'],['atelier','Atelier']];
+  $('tabs').innerHTML=tabs.map(([k,l])=>`<button class="f-tab ${k===t?'on':''}" onclick="renderTabs('${k}')">${l}</button>`).join('');
+  // Update nav
+  [...$('navBar').children].forEach((n,i)=>n.classList.toggle('on',tabs[i]&&tabs[i][0]===t));
+  const list=PRODUCTS.filter(p=>t==='all'||p.tier===t);
+  $('prodCount').textContent=list.length+' product'+(list.length!==1?'s':'');
   $('grid').innerHTML=list.map(p=>`
     <div class="p-card" onclick="go('/product/${p.handle}')">
-      <div class="ph"><img loading="lazy" src="${p.image}?auto=compress&cs=tinysrgb&w=500" alt="${p.name}"></div>
-      <div class="info"><div class="tier">${p.tier}</div><div class="nm">${p.name}</div>
-      <div class="pr"><b>${fmt(px(p.price_aed))}</b>${p.compare_aed?`<s>${fmt(px(p.compare_aed))}</s>`:''}</div></div>
+      <div class="p-img">
+        <img loading="lazy" src="${p.image}?auto=compress&cs=tinysrgb&w=500" alt="${p.name}">
+        ${p.compare_aed?'<div class="p-badge">Sale</div>':''}
+      </div>
+      <div class="p-body">
+        <div class="p-tier">${p.tier}</div>
+        <div class="p-name">${p.name}</div>
+        <div class="p-fabric">${p.fabrics[0]}</div>
+        <div class="p-price">${fmt(px(p.price_aed))}${p.compare_aed?`<s>${fmt(px(p.compare_aed))}</s>`:''}</div>
+        <div class="p-colors">${p.colors.map(c=>`<span class="p-dot" style="background:${COLOR_HEX[c]||'#999'}" title="${c}"></span>`).join('')}</div>
+      </div>
     </div>`).join('');
 }
 
-/* ---- Product Detail Page ---- */
+/* ---- Product Detail ---- */
 let sel={};
 function renderProduct(handle){
   const p=PRODUCTS.find(x=>x.handle===handle);
   if(!p){go('/');return;}
   const isAtelier=p.tier==='atelier';
   sel={handle,fabric:p.fabrics[0],color:p.colors[0],size:isAtelier?'Custom':(p.sizes[1]||p.sizes[0]),custom:isAtelier,qty:1};
-
   document.title='SAJA — '+p.name;
-  $('pdp-crumb').innerHTML=`<a onclick="go('/')">${TIER_LABELS[p.tier]}</a> / ${p.name}`;
+  $('pdp-crumb').innerHTML=`<a onclick="go('/')">Home</a> / <a onclick="go('/');setTimeout(()=>renderTabs('${p.tier}'),50)">${TIER_LABELS[p.tier]}</a> / ${p.name}`;
+  // Gallery - show same image in grid layout (ready for multi-image when photos arrive)
+  $('pdp-gallery').innerHTML=`
+    <div class="gal-img"><img src="${p.image}?auto=compress&cs=tinysrgb&w=1000" alt="${p.name}"></div>
+    <div class="gal-img"><img src="${p.image}?auto=compress&cs=tinysrgb&w=600" alt="${p.name} detail" style="object-position:center 60%"></div>
+    <div class="gal-img"><img src="${p.image}?auto=compress&cs=tinysrgb&w=600" alt="${p.name} fabric" style="object-position:center 80%"></div>`;
 
-  // Main image
-  $('pdp-main-img').innerHTML=`<img id="pdp-hero-img" src="${p.image}?auto=compress&cs=tinysrgb&w=900" alt="${p.name}">`;
-  $('pdp-thumbs').innerHTML='';
-
-  // Info panel
   $('pdp-info').innerHTML=`
-    <div class="tier-badge">${TIER_LABELS[p.tier]}</div>
+    <div class="p-tier" style="font-size:11px;letter-spacing:2px">${TIER_LABELS[p.tier]}</div>
     <h1>${p.name}</h1>
     <div class="price" id="pdp-price">${fmt(px(p.price_aed))}${p.compare_aed?` <s>${fmt(px(p.compare_aed))}</s>`:''}</div>
     <p class="desc">${p.description}</p>
 
-    <!-- Fabric -->
     <div class="opt-section">
       <div class="opt-label">Fabric <span class="val" id="fabricName">${sel.fabric}</span></div>
       <div class="opts">${p.fabrics.map(f=>`<button class="opt ${f===sel.fabric?'on':''}" onclick="pickFabric('${f}',this)">${f}</button>`).join('')}</div>
       <div class="opt-desc" id="fabricDesc">${FABRIC_INFO[sel.fabric]?.desc||''}</div>
     </div>
 
-    <!-- Colour -->
     <div class="opt-section">
       <div class="opt-label">Colour <span class="val" id="colName">${sel.color}</span></div>
       <div class="opts">${p.colors.map(c=>`<button class="dot ${c===sel.color?'on':''}" title="${c}" style="background:${COLOR_HEX[c]||'#999'}" onclick="pickColor('${c}',this)"></button>`).join('')}</div>
     </div>
 
-    <!-- Size -->
-    ${isAtelier?`
-      <div class="opt-section">
-        <div class="opt-label">Size <span class="val">Made to your measurements</span></div>
-        <div style="padding:14px 16px;background:var(--sand-soft);border-radius:12px;font-size:13px;color:#6e5e38;line-height:1.6">
-          This is a fully custom piece. Enter your measurements below — our tailor will confirm each one on WhatsApp before cutting.
-        </div>
-      </div>
-    `:`
-      <div class="opt-section">
-        <div class="opt-label">Size <span class="val" id="sizeName">${sel.size}</span> <span class="size-guide-link" onclick="$('sizeGuideModal').classList.add('open')">Size Guide</span></div>
-        <div class="opts" id="sizeOpts">${p.sizes.map(s=>`<button class="opt ${s===sel.size?'on':''}" onclick="pickSize('${s}',this)">${s}</button>`).join('')}</div>
-        <label class="custom-check" id="customCheck">
-          <input type="checkbox" onchange="toggleCustom(this.checked)">
-          <div><div style="font-weight:600;font-size:13px">Made to my measurements</div><div style="font-size:12px;color:var(--muted)">+ ${fmt(px(60))} — perfect fit guaranteed</div></div>
-        </label>
-      </div>
-    `}
+    ${isAtelier?`<div class="opt-section"><div class="opt-label">Size</div><p style="font-size:13px;color:#6e5e38;padding:14px 18px;background:var(--sand-soft);line-height:1.6">This is a fully custom piece. Enter your measurements below.</p></div>`:`
+    <div class="opt-section">
+      <div class="opt-label">Size <span class="val" id="sizeName">${sel.size}</span> <span class="sg-link" onclick="$('sizeGuideModal').classList.add('open')">Size Guide</span></div>
+      <div class="opts" id="sizeOpts">${p.sizes.map(s=>`<button class="opt ${s===sel.size?'on':''}" onclick="pickSize('${s}',this)">${s}</button>`).join('')}</div>
+      <label class="custom-toggle" id="customCheck">
+        <input type="checkbox" onchange="toggleCustom(this.checked)">
+        <div><span style="font-weight:600;font-size:13px">Made to my measurements</span><br><span style="font-size:12px;color:var(--muted)">+ ${fmt(px(60))}</span></div>
+      </label>
+    </div>`}
 
-    <!-- Measurements -->
     <div id="measureBox" style="display:${isAtelier?'block':'none'}">
       <div class="opt-section">
         <div class="opt-label">Your Measurements (cm)</div>
@@ -485,192 +563,114 @@ function renderProduct(handle){
           <div><label>Waist (optional)</label><input id="m_waist" type="number" inputmode="decimal" placeholder="e.g. 78"></div>
           <div><label>Hip (optional)</label><input id="m_hip" type="number" inputmode="decimal" placeholder="e.g. 102"></div>
         </div>
-        <div style="margin-top:12px"><label style="font-size:11px;color:var(--muted);font-weight:500;display:block;margin-bottom:4px">Notes for the Tailor</label>
-        <textarea id="m_notes" placeholder="e.g. slightly looser sleeves, longer length (English / Urdu welcome)"></textarea></div>
-        <div class="measure-note">Our tailor confirms every measurement on WhatsApp before cutting fabric. If something isn't right, we remake it — no questions asked.</div>
+        <div style="margin-top:14px"><label style="font-size:11px;font-weight:500;color:var(--muted);display:block;margin-bottom:4px">Notes for the Tailor</label>
+        <textarea id="m_notes" placeholder="e.g. slightly looser sleeves, longer length (English / Urdu)"></textarea></div>
+        <div class="measure-note">Our tailor confirms every measurement on WhatsApp before cutting fabric. Not right? We remake it — no questions.</div>
       </div>
     </div>
 
-    <!-- Quantity + Add -->
-    <div class="opt-section" style="margin-top:8px">
+    <div class="opt-section">
       <div class="opt-label">Quantity</div>
-      <div class="qty-row">
-        <button onclick="sel.qty=Math.max(1,sel.qty-1);$('qtyVal').textContent=sel.qty;updPrice()">&#8722;</button>
-        <span id="qtyVal">1</span>
-        <button onclick="sel.qty=Math.min(10,sel.qty+1);$('qtyVal').textContent=sel.qty;updPrice()">+</button>
-      </div>
+      <div class="qty-row"><button onclick="sel.qty=Math.max(1,sel.qty-1);$('qtyVal').textContent=sel.qty;updPrice()">&#8722;</button><span id="qtyVal">1</span><button onclick="sel.qty=Math.min(10,sel.qty+1);$('qtyVal').textContent=sel.qty;updPrice()">+</button></div>
     </div>
 
-    <button class="add-btn" onclick="addToCart()">Add to Bag — <span id="pdpTotal">${fmt(px(p.price_aed))}</span></button>
+    <button class="add-btn" onclick="addToCart()">Add to Bag &mdash; <span id="pdpTotal">${fmt(px(p.price_aed))}</span></button>
 
-    <!-- Features -->
-    <div class="pdp-features">
-      <div class="pdp-feat"><span class="icon">&#9986;</span><div>Custom-fitted in our Karachi atelier</div></div>
-      <div class="pdp-feat"><span class="icon">&#128666;</span><div>Free delivery across Pakistan</div></div>
-      <div class="pdp-feat"><span class="icon">&#128247;</span><div>Photo QC before dispatch</div></div>
-      <div class="pdp-feat"><span class="icon">&#128172;</span><div>WhatsApp support throughout</div></div>
-    </div>
-  `;
+    <div class="pdp-accord">
+      <div class="accord-item"><div class="accord-head" onclick="this.parentElement.classList.toggle('open')">Delivery</div><div class="accord-body">Free delivery across Pakistan. Ready stock ships in 2–4 working days. Custom orders take 10–14 working days. COD available (+Rs. 200 handling).</div></div>
+      <div class="accord-item"><div class="accord-head" onclick="this.parentElement.classList.toggle('open')">Fabric &amp; Care</div><div class="accord-body" id="accordFabric">${FABRIC_INFO[sel.fabric]?.desc||''}</div></div>
+      <div class="accord-item"><div class="accord-head" onclick="this.parentElement.classList.toggle('open')">Returns &amp; Exchange</div><div class="accord-body">Ready-made sizes can be exchanged within 7 days (unworn, tags attached). Custom pieces are non-returnable but covered by our remake guarantee — if the fit isn't right, we remake it free.</div></div>
+    </div>`;
 
-  // Related products
-  const related=PRODUCTS.filter(x=>x.tier===p.tier&&x.handle!==handle).slice(0,4);
-  if(related.length){
-    $('pdp-related').innerHTML=`<div class="eyebrow">You may also like</div><h2 style="margin-bottom:6px">From the ${TIER_LABELS[p.tier]} collection</h2>
-      <div class="grid">${related.map(r=>`
-        <div class="p-card" onclick="go('/product/${r.handle}')">
-          <div class="ph"><img loading="lazy" src="${r.image}?auto=compress&cs=tinysrgb&w=500" alt="${r.name}"></div>
-          <div class="info"><div class="tier">${r.tier}</div><div class="nm">${r.name}</div>
-          <div class="pr"><b>${fmt(px(r.price_aed))}</b></div></div></div>`).join('')}</div>`;
-  } else {
-    $('pdp-related').innerHTML='';
-  }
+  // Related
+  const rel=PRODUCTS.filter(x=>x.tier===p.tier&&x.handle!==handle).slice(0,4);
+  $('pdp-related').innerHTML=rel.length?`<div class="section-head"><h2>You May Also Like</h2></div><div class="p-grid">${rel.map(r=>`
+    <div class="p-card" onclick="go('/product/${r.handle}')"><div class="p-img"><img loading="lazy" src="${r.image}?auto=compress&cs=tinysrgb&w=500" alt="${r.name}">${r.compare_aed?'<div class="p-badge">Sale</div>':''}</div>
+    <div class="p-body"><div class="p-tier">${r.tier}</div><div class="p-name">${r.name}</div><div class="p-price">${fmt(px(r.price_aed))}</div></div></div>`).join('')}</div>`:'';
 }
 
-function pickFabric(f,el){sel.fabric=f;[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');$('fabricName').textContent=f;$('fabricDesc').textContent=FABRIC_INFO[f]?.desc||'';}
+function pickFabric(f,el){sel.fabric=f;[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');$('fabricName').textContent=f;$('fabricDesc').textContent=FABRIC_INFO[f]?.desc||'';if($('accordFabric'))$('accordFabric').textContent=FABRIC_INFO[f]?.desc||'';}
 function pickColor(c,el){sel.color=c;[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');$('colName').textContent=c;}
-function pickSize(s,el){sel.size=s;[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');if($('sizeName'))$('sizeName').textContent=s;updPrice();}
-function toggleCustom(on){
-  sel.custom=on;
-  $('measureBox').style.display=on?'block':'none';
-  const cc=$('customCheck');if(cc)cc.classList.toggle('on',on);
-  if(on&&$('sizeOpts')){[...$('sizeOpts').children].forEach(x=>{x.classList.remove('on');x.style.opacity='.4';x.style.pointerEvents='none';});}
-  else if($('sizeOpts')){[...$('sizeOpts').children].forEach(x=>{x.style.opacity='1';x.style.pointerEvents='auto';});pickSize(sel.size||'M',null);}
-  updPrice();
-}
-function updPrice(){
-  const p=PRODUCTS.find(x=>x.handle===sel.handle);if(!p)return;
-  const unit=p.price_aed+(sel.custom&&p.tier!=='atelier'?60:0);
-  const total=unit*sel.qty;
-  if($('pdpTotal'))$('pdpTotal').textContent=fmt(px(total));
-  if($('pdp-price'))$('pdp-price').innerHTML=fmt(px(unit))+(p.compare_aed?` <s>${fmt(px(p.compare_aed))}</s>`:'');
-}
+function pickSize(s,el){sel.size=s;if(el){[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');}if($('sizeName'))$('sizeName').textContent=s;updPrice();}
+function toggleCustom(on){sel.custom=on;$('measureBox').style.display=on?'block':'none';const cc=$('customCheck');if(cc)cc.classList.toggle('on',on);if(on&&$('sizeOpts'))[...$('sizeOpts').children].forEach(x=>{x.style.opacity='.3';x.style.pointerEvents='none';});else if($('sizeOpts'))[...$('sizeOpts').children].forEach(x=>{x.style.opacity='1';x.style.pointerEvents='auto';});updPrice();}
+function updPrice(){const p=PRODUCTS.find(x=>x.handle===sel.handle);if(!p)return;const u=p.price_aed+(sel.custom&&p.tier!=='atelier'?60:0);if($('pdpTotal'))$('pdpTotal').textContent=fmt(px(u*sel.qty));if($('pdp-price'))$('pdp-price').innerHTML=fmt(px(u))+(p.compare_aed?` <s>${fmt(px(p.compare_aed))}</s>`:'');}
 
 function addToCart(){
   const p=PRODUCTS.find(x=>x.handle===sel.handle);
   const item={handle:sel.handle,fabric:sel.fabric,color:sel.color,size:sel.custom?'Custom':sel.size,qty:sel.qty};
   if(sel.custom||p.tier==='atelier'){
-    item.size='Custom';
-    item.measurements={shoulder:$('m_shoulder').value,bust:$('m_bust').value,sleeve:$('m_sleeve').value,length:$('m_length').value,waist:$('m_waist').value,hip:$('m_hip').value};
+    item.size='Custom';item.measurements={shoulder:$('m_shoulder').value,bust:$('m_bust').value,sleeve:$('m_sleeve').value,length:$('m_length').value,waist:$('m_waist').value,hip:$('m_hip').value};
     item.tailor_notes=$('m_notes')?.value||'';
-    for(const k of ['shoulder','bust','sleeve','length']){
-      if(!(parseFloat(item.measurements[k])>10)){toast('Please fill shoulder, bust, sleeve & length');return;}
-    }
+    for(const k of['shoulder','bust','sleeve','length']){if(!(parseFloat(item.measurements[k])>10)){toast('Please fill shoulder, bust, sleeve & length');return;}}
   }
-  cart.push(item); save(); updateCount();
-  toast('Added to your bag');
+  cart.push(item);save();updateCount();toast('Added to bag');
 }
 
-/* ---- Cart / Checkout ---- */
-let quote=null, paying='cod', promo='';
+/* ---- Cart ---- */
+let quote=null,paying='cod',promo='';
 async function renderCart(){
-  if(cart.length===0){
-    $('cartArea').innerHTML=`<div style="text-align:center;padding:40px 0"><p style="color:var(--muted);font-size:15px">Your bag is empty.</p><button class="pill dark" style="margin-top:16px" onclick="go('/')">Browse the Collection</button></div>`;
-    return;
-  }
+  if(!cart.length){$('cartArea').innerHTML=`<div style="text-align:center;padding:60px 0"><p style="color:var(--muted)">Your bag is empty.</p><button class="add-btn" style="max-width:240px;margin:20px auto 0" onclick="go('/')">Continue Shopping</button></div>`;return;}
   const methods=Object.entries(CONFIG.paymentMethods).filter(([k,m])=>m[country]);
   if(!methods.find(([k])=>k===paying))paying=methods[0]?.[0]||'cod';
-  const lines=cart.map((it,i)=>{const p=PRODUCTS.find(x=>x.handle===it.handle);return `
+  $('cartArea').innerHTML=cart.map((it,i)=>{const p=PRODUCTS.find(x=>x.handle===it.handle);return`
     <div class="cartline">
-      <img src="${p.image}?auto=compress&cs=tinysrgb&w=160" alt="" style="cursor:pointer" onclick="go('/product/${p.handle}')">
-      <div class="ci"><b>${p.name}</b><div class="meta">${it.fabric} · ${it.color} · ${it.size}</div></div>
-      <div class="qty"><button onclick="chQty(${i},-1)">&#8722;</button>${it.qty}<button onclick="chQty(${i},1)">+</button></div>
-      <button class="rm" onclick="rmItem(${i})">&#10005;</button>
-    </div>`;}).join('');
-
-  $('cartArea').innerHTML=`${lines}
-    <div class="field" style="margin-top:20px"><label>Promo Code</label>
-      <div style="display:flex;gap:8px"><input id="promoIn" placeholder="e.g. SAJA20" value="${promo}" style="text-transform:uppercase"><button class="pill dark" onclick="promo=$('promoIn').value;refreshQuote()">Apply</button></div></div>
-
-    <h3 style="font-family:var(--display);font-weight:400;font-size:22px;margin:24px 0 14px">Delivery Details</h3>
-    <div class="row2">
-      <div class="field"><label>Full Name</label><input id="f_name"></div>
-      <div class="field"><label>WhatsApp Number</label><input id="f_phone" placeholder="03XX XXXXXXX"></div>
-    </div>
+      <img src="${p.image}?auto=compress&cs=tinysrgb&w=200" alt="" onclick="go('/product/${p.handle}')">
+      <div class="ci"><b>${p.name}</b><div class="meta">${it.fabric} / ${it.color} / ${it.size}</div><div class="cp">${fmt(px(p.price_aed))}</div>
+        <div class="c-qty"><button onclick="chQty(${i},-1)">&#8722;</button><span>${it.qty}</span><button onclick="chQty(${i},1)">+</button></div>
+      </div>
+      <button class="rm" onclick="rmItem(${i})">Remove</button>
+    </div>`;}).join('')+`
+    <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--line)">
+    <div class="field"><label>Promo Code</label><div style="display:flex;gap:8px"><input id="promoIn" placeholder="e.g. SAJA20" value="${promo}" style="text-transform:uppercase"><button class="add-btn" style="width:auto;padding:12px 24px;margin:0" onclick="promo=$('promoIn').value;refreshQuote()">Apply</button></div></div>
+    <h3 style="font-family:var(--display);font-weight:400;font-size:22px;margin:28px 0 16px">Delivery Details</h3>
+    <div class="row2"><div class="field"><label>Full Name</label><input id="f_name"></div><div class="field"><label>WhatsApp Number</label><input id="f_phone" placeholder="03XX XXXXXXX"></div></div>
     <div class="field"><label>Email (optional)</label><input id="f_email" type="email" placeholder="you@example.com"></div>
-    <div class="row2">
-      <div class="field"><label>Country</label>
-        <select id="f_country" onchange="country=this.value;localStorage.setItem('saja_country',country);setCurBtn();renderCart()">
-          <option value="PK" ${country==='PK'?'selected':''}>Pakistan</option>
-          <option value="AE" ${country==='AE'?'selected':''}>United Arab Emirates</option>
-        </select></div>
-      <div class="field"><label>City</label><input id="f_city" placeholder="e.g. Karachi, Lahore"></div>
-    </div>
+    <div class="row2"><div class="field"><label>Country</label><select id="f_country" onchange="country=this.value;localStorage.setItem('saja_country',country);setCurBtn();renderCart()"><option value="PK" ${country==='PK'?'selected':''}>Pakistan</option><option value="AE" ${country==='AE'?'selected':''}>UAE</option></select></div><div class="field"><label>City</label><input id="f_city" placeholder="e.g. Karachi, Lahore"></div></div>
     <div class="field"><label>Delivery Address</label><textarea id="f_addr" placeholder="Full address with area and landmark"></textarea></div>
-
-    <div style="margin:20px 0 10px"><div class="opt-label">Payment Method</div></div>
+    <div style="margin:22px 0 10px"><div class="opt-label">Payment Method</div></div>
     <div class="paychoice">${methods.map(([k,m])=>`<label class="pc ${k===paying?'on':''}"><input type="radio" name="pm" style="width:auto" ${k===paying?'checked':''} onchange="paying='${k}';renderCart()">${m.label}</label>`).join('')}</div>
-
-    <div class="totals" id="totals"><div style="text-align:center;color:var(--muted);padding:10px">Calculating...</div></div>
+    <div class="totals" id="totals"><div style="text-align:center;color:var(--muted);padding:12px">Calculating...</div></div>
     <div class="err" id="err"></div>
     <button class="add-btn" id="placeBtn" onclick="placeOrder()">Place Order</button>
-    <p style="font-size:11.5px;color:var(--muted);margin-top:12px;text-align:center;line-height:1.6">Custom pieces: our tailor confirms your measurements on WhatsApp before stitching begins.</p>`;
+    <p style="font-size:11px;color:var(--muted);margin-top:14px;text-align:center;line-height:1.6">Custom pieces: our tailor confirms your measurements on WhatsApp before stitching.</p></div>`;
   refreshQuote();
 }
 function chQty(i,d){cart[i].qty=Math.max(1,(cart[i].qty||1)+d);save();renderCart();}
 function rmItem(i){cart.splice(i,1);save();updateCount();renderCart();}
-
 async function refreshQuote(){
-  const r=await fetch('/api/orders/quote',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({items:cart,country,payment_method:paying,promo})});
-  const d=await r.json();
-  if(!r.ok){$('totals').innerHTML='';$('err').textContent=d.error;return;}
+  const r=await fetch('/api/orders/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cart,country,payment_method:paying,promo})});
+  const d=await r.json();if(!r.ok){$('totals').innerHTML='';$('err').textContent=d.error;return;}
   quote=d;$('err').textContent='';
-  $('totals').innerHTML=`
-    <div class="tr"><span>Subtotal</span><span>${d.currency} ${d.subtotal.toLocaleString()}</span></div>
-    ${d.discount?`<div class="tr"><span>Promo discount</span><span style="color:#2d7a4f">- ${d.currency} ${d.discount.toLocaleString()}</span></div>`:''}
-    ${d.cod_fee?`<div class="tr"><span>COD handling</span><span>${d.currency} ${d.cod_fee.toLocaleString()}</span></div>`:''}
-    <div class="tr"><span>Delivery</span><span style="color:#2d7a4f">Free</span></div>
-    <div class="tr big"><span>Total</span><span>${d.currency} ${d.total.toLocaleString()}</span></div>`;
+  $('totals').innerHTML=`<div class="tr"><span>Subtotal</span><span>${d.currency} ${d.subtotal.toLocaleString()}</span></div>${d.discount?`<div class="tr"><span>Discount</span><span style="color:#2d7a4f">- ${d.currency} ${d.discount.toLocaleString()}</span></div>`:''}${d.cod_fee?`<div class="tr"><span>COD Handling</span><span>${d.currency} ${d.cod_fee.toLocaleString()}</span></div>`:''}<div class="tr"><span>Delivery</span><span style="color:#2d7a4f">Free</span></div><div class="tr big"><span>Total</span><span>${d.currency} ${d.total.toLocaleString()}</span></div>`;
 }
-
 async function placeOrder(){
   $('placeBtn').disabled=true;$('placeBtn').textContent='Placing order...';
-  const body={items:cart,country,payment_method:paying,promo,
-    customer_name:$('f_name').value,phone:$('f_phone').value,
-    email:$('f_email').value||undefined,
-    city:$('f_city').value,address:$('f_addr').value};
+  const body={items:cart,country,payment_method:paying,promo,customer_name:$('f_name').value,phone:$('f_phone').value,email:$('f_email').value||undefined,city:$('f_city').value,address:$('f_addr').value};
   const r=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-  const d=await r.json();
-  $('placeBtn').disabled=false;$('placeBtn').textContent='Place Order';
+  const d=await r.json();$('placeBtn').disabled=false;$('placeBtn').textContent='Place Order';
   if(!r.ok){$('err').textContent=d.error;return;}
   cart=[];save();updateCount();
   const wa=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('Assalam o Alaikum! My SAJA order number is '+d.order_no)}`;
-  $('cartArea').innerHTML=`<div class="ok-screen"><div class="tick">&#10003;</div>
-    <h3>Shukriya! Order received</h3>
-    <p>Order <b>${d.order_no}</b><br>Total: <b>${d.currency} ${d.total.toLocaleString()}</b><br><br>
-    ${d.payment.kind==='instructions'?d.payment.instructions:'We will WhatsApp you shortly to confirm your order'+(quote&&quote.lines.some(l=>l.size==='Custom')?' and your measurements before stitching begins.':'.')}</p>
-    <a class="wa" target="_blank" rel="noopener" href="${wa}">Message us on WhatsApp</a></div>`;
+  $('cartArea').innerHTML=`<div class="ok-screen"><div class="tick">&#10003;</div><h3>Shukriya! Order Received</h3><p>Order <b>${d.order_no}</b><br>Total: <b>${d.currency} ${d.total.toLocaleString()}</b><br><br>${d.payment.kind==='instructions'?d.payment.instructions:'We will WhatsApp you shortly to confirm your order.'}</p><a class="wa-btn" target="_blank" rel="noopener" href="${wa}">Message Us on WhatsApp</a></div>`;
 }
 
-/* ---- Order Tracking ---- */
+/* ---- Tracking ---- */
 async function trackOrder(){
-  const no=$('t_no').value.trim(), phone=$('t_phone').value.trim();
+  const no=$('t_no').value.trim(),phone=$('t_phone').value.trim();
   if(!no||!phone){$('trackResult').innerHTML='<p class="err">Enter your order number and phone.</p>';return;}
   const r=await fetch('/api/orders/'+encodeURIComponent(no)+'?phone='+encodeURIComponent(phone));
   if(!r.ok){$('trackResult').innerHTML='<p class="err">Order not found. Check the number and phone.</p>';return;}
   const o=await r.json();
   const steps=['new','confirmed','stitching','qc','shipped','delivered'];
-  const labels={new:'Received',confirmed:'Confirmed',stitching:'Stitching',qc:'Quality Check',shipped:'Shipped',delivered:'Delivered'};
+  const labels={new:'Received',confirmed:'Confirmed',stitching:'Stitching',qc:'QC',shipped:'Shipped',delivered:'Delivered'};
   const idx=steps.indexOf(o.status);
-  const bar=steps.map((s,i)=>`<div style="flex:1;text-align:center">
-    <div style="height:4px;border-radius:2px;background:${i<=idx?'var(--sand)':'var(--line)'};margin-bottom:8px"></div>
-    <span style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:${i<=idx?'var(--ink)':'var(--muted)'};font-weight:${i===idx?'700':'400'}">${labels[s]}</span></div>`).join('');
-  $('trackResult').innerHTML=`
-    <div style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-        <div><div class="eyebrow">${o.order_no}</div><div style="font-size:12px;color:var(--muted);margin-top:2px">${o.created_at}</div></div>
-        <div style="text-align:right"><b style="font-size:16px">${o.currency} ${o.total.toLocaleString()}</b><br><span class="badge">${o.payment_status}</span></div>
-      </div>
-      <div style="display:flex;gap:4px;margin-bottom:18px">${bar}</div>
-      ${o.items.map(i=>`<div style="font-size:13px;padding:8px 0;border-top:1px dashed var(--line)"><b>${i.name}</b> x${i.qty} — ${i.fabric}, ${i.color}, ${i.size}</div>`).join('')}
-      ${o.status==='shipped'?'<p style="margin-top:14px;font-size:14px;color:var(--sand);font-weight:600">Your order is on its way!</p>':''}
-    </div>`;
+  $('trackResult').innerHTML=`<div style="border:1px solid var(--line);padding:24px;margin-top:16px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:18px"><div><strong>${o.order_no}</strong><br><span style="font-size:12px;color:var(--muted)">${o.created_at}</span></div><div style="text-align:right"><b>${o.currency} ${o.total.toLocaleString()}</b><br><span class="badge">${o.payment_status}</span></div></div>
+    <div style="display:flex;gap:4px;margin-bottom:20px">${steps.map((s,i)=>`<div style="flex:1;text-align:center"><div style="height:3px;background:${i<=idx?'var(--sand)':'var(--line)'};margin-bottom:6px"></div><span style="font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:${i<=idx?'var(--ink)':'var(--muted)'};font-weight:${i===idx?'700':'400'}">${labels[s]}</span></div>`).join('')}</div>
+    ${o.items.map(i=>`<div style="font-size:13px;padding:8px 0;border-top:1px solid var(--line)"><b>${i.name}</b> x${i.qty} — ${i.fabric}, ${i.color}, ${i.size}</div>`).join('')}</div>`;
 }
 
-/* ---- Toast ---- */
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
-
-/* ---- Init ---- */
 boot();
 </script>
 </body>
