@@ -27,7 +27,7 @@ jobs:
 
             if [ ! -d .git ]; then
               git init
-              git remote add origin ${{ secrets.SAJA_REPO_URL }}
+              git remote add origin https://github.com/hamidraza8/saja-store.git
             fi
             git fetch origin main
             git reset --hard origin/main
