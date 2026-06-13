@@ -1,0 +1,17 @@
+{
+  "name": "saja-store",
+  "version": "1.0.0",
+  "description": "SAJA — Modern Abaya Atelier. Self-hosted e-commerce.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node src/db.js --seed",
+    "backup": "node scripts/backup-db.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.22.2",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.2.0"
+  }
+}

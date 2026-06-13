@@ -1,0 +1,26 @@
+services:
+  saja-store:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+      - ADMIN_KEY=${ADMIN_KEY:-change-me}
+      - WHATSAPP_NUMBER=${WHATSAPP_NUMBER:-9715XXXXXXXX}
+      - TELR_STORE_ID=${TELR_STORE_ID:-}
+      - TELR_AUTH_KEY=${TELR_AUTH_KEY:-}
+      - JAZZCASH_MERCHANT_ID=${JAZZCASH_MERCHANT_ID:-}
+      - JAZZCASH_PASSWORD=${JAZZCASH_PASSWORD:-}
+      - JAZZCASH_INTEGRITY_SALT=${JAZZCASH_INTEGRITY_SALT:-}
+    volumes:
+      - saja_data:/app/data
+    networks:
+      - web
+
+volumes:
+  saja_data:
+
+networks:
+  web:
+    external: true

@@ -1,0 +1,39 @@
+name: Deploy SAJA Store
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 91.99.20.199
+          username: root
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -e
+
+            # Ensure shared Docker network exists
+            docker network inspect web >/dev/null 2>&1 || docker network create web
+
+            cd /opt/saja-store
+
+            if [ ! -d .git ]; then
+              git init
+              git remote add origin ${{ secrets.SAJA_REPO_URL }}
+            fi
+            git fetch origin main
+            git reset --hard origin/main
+
+            cd deployment
+            docker compose up -d --build --remove-orphans
+            docker image prune -f
+
+            echo "SAJA deployment complete!"

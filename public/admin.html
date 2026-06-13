@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAJA — Atelier Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1A1C;--paper:#FAF8F3;--card:#fff;--sand:#A8956B;--line:#E8E3D8;--muted:#8A8378}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);padding:24px;max-width:1100px;margin:0 auto}
+h1{font-family:'Marcellus',serif;font-weight:400;letter-spacing:3px;margin-bottom:4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:20px}
+input,select{border:1px solid var(--line);border-radius:9px;padding:10px;font-family:inherit;font-size:14px;background:var(--card)}
+button{border:none;background:var(--ink);color:#fff;border-radius:999px;padding:10px 20px;font-family:inherit;font-weight:600;cursor:pointer}
+.login{display:flex;gap:10px;margin:30px 0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+th{background:var(--ink);color:#fff;text-align:left;padding:10px 12px;font-weight:600}
+td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+tr:hover td{background:#FBF9F4}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;background:#F1EBDD;color:#6e5e38}
+.items{font-size:12px;color:var(--muted);line-height:1.6}
+.items b{color:var(--ink)}
+.meas{font-size:11px;background:#F1EBDD;border-radius:8px;padding:6px 8px;margin-top:4px;display:inline-block}
+.err{color:#9C3D3D;font-weight:600;margin:10px 0}
+.stats{display:flex;gap:12px;margin:0 0 18px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px}
+.stat b{font-family:'Marcellus',serif;font-size:22px;display:block}
+.stat span{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<h1>SAJA</h1><div class="sub">Atelier admin — orders</div>
+<div id="loginBox" class="login">
+  <input id="key" type="password" placeholder="Admin key" style="flex:1;max-width:340px">
+  <button onclick="login()">Enter</button>
+</div>
+<div class="err" id="err"></div>
+<div id="panel" style="display:none">
+  <div class="stats" id="stats"></div>
+  <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
+    <input id="search" placeholder="Search name, phone, order #…" style="flex:1;min-width:200px" oninput="applyFilters()">
+    <select id="filterStatus" style="width:auto" onchange="applyFilters()">
+      <option value="">All statuses</option>
+      <option value="new">New</option><option value="confirmed">Confirmed</option>
+      <option value="stitching">Stitching</option><option value="qc">QC</option>
+      <option value="shipped">Shipped</option><option value="delivered">Delivered</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
+    <select id="filterPay" style="width:auto" onchange="applyFilters()">
+      <option value="">All payments</option>
+      <option value="pending">Pending</option><option value="paid">Paid</option>
+    </select>
+    <button onclick="login()" style="background:var(--sand);color:var(--ink);font-size:12px;padding:8px 14px">Refresh</button>
+  </div>
+  <table><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th></tr></thead>
+  <tbody id="rows"></tbody></table>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+let KEY=sessionStorage.getItem('saja_admin_key')||'';
+const STATUSES=['new','confirmed','stitching','qc','shipped','delivered','cancelled'];
+const PAYS=['pending','paid','failed','refunded'];
+async function api(path,opts={}){
+  const r=await fetch(path,{...opts,headers:{'Content-Type':'application/json','x-admin-key':KEY,...(opts.headers||{})}});
+  const d=await r.json();
+  if(!r.ok)throw new Error(d.error||r.status);
+  return d;
+}
+async function login(){
+  KEY=$('key').value||KEY;
+  try{allOrders=await api('/api/admin/orders');
+    sessionStorage.setItem('saja_admin_key',KEY);
+    $('loginBox').style.display='none';$('panel').style.display='block';$('err').textContent='';
+    applyFilters();
+  }catch(e){$('err').textContent=e.message;}
+}
+function render(orders,all){
+  all=all||orders;
+  const rev=all.filter(o=>o.status!=='cancelled').reduce((s,o)=>s+(o.currency==='PKR'?o.total/76:o.total),0);
+  const paid=all.filter(o=>o.payment_status==='paid').reduce((s,o)=>s+(o.currency==='PKR'?o.total/76:o.total),0);
+  $('stats').innerHTML=`
+    <div class="stat"><b>${all.length}</b><span>total orders</span></div>
+    <div class="stat"><b>${all.filter(o=>o.status==='new').length}</b><span>new</span></div>
+    <div class="stat"><b>${all.filter(o=>o.status==='stitching').length}</b><span>stitching</span></div>
+    <div class="stat"><b>${all.filter(o=>o.items.some(i=>i.size==='Custom')).length}</b><span>custom</span></div>
+    <div class="stat"><b>AED ${Math.round(rev).toLocaleString()}</b><span>revenue</span></div>
+    <div class="stat"><b>AED ${Math.round(paid).toLocaleString()}</b><span>collected</span></div>
+    ${orders.length!==all.length?`<div class="stat"><b>${orders.length}</b><span>showing</span></div>`:''}`;
+  $('rows').innerHTML=orders.map(o=>`<tr>
+    <td><b>${o.order_no}</b><br><span style="color:var(--muted);font-size:11px">${o.created_at} UTC</span></td>
+    <td>${o.customer_name}<br><a href="https://wa.me/${o.phone.replace(/\D/g,'')}" target="_blank">${o.phone}</a><br>
+      <span style="font-size:11px;color:var(--muted)">${o.country==='PK'?'🇵🇰':'🇦🇪'} ${o.city||''}<br>${(o.address||'').slice(0,60)}</span></td>
+    <td class="items">${o.items.map(i=>`<b>${i.name}</b> ×${i.qty}<br>${i.fabric} · ${i.color} · ${i.size}
+      ${i.measurements?`<div class="meas">Sh ${i.measurements.shoulder} · Bu ${i.measurements.bust} · Sl ${i.measurements.sleeve} · Ln ${i.measurements.length}${i.measurements.waist?` · Wa ${i.measurements.waist}`:''}${i.measurements.hip?` · Hi ${i.measurements.hip}`:''}</div>`:''}
+      ${i.tailor_notes?`<div class="meas">📝 ${i.tailor_notes}</div>`:''}`).join('<hr style="border:none;border-top:1px dashed var(--line);margin:6px 0">')}
+      ${o.notes?`<div class="meas">Order note: ${o.notes}</div>`:''}</td>
+    <td><b>${o.currency} ${o.total.toLocaleString()}</b><br><span class="badge">${o.payment_method}</span></td>
+    <td><select onchange="upd('${o.order_no}',{payment_status:this.value})">
+      ${PAYS.map(s=>`<option ${s===o.payment_status?'selected':''}>${s}</option>`).join('')}</select></td>
+    <td><select onchange="upd('${o.order_no}',{status:this.value})">
+      ${STATUSES.map(s=>`<option ${s===o.status?'selected':''}>${s}</option>`).join('')}</select></td>
+  </tr>`).join('') || '<tr><td colspan="6" style="text-align:center;color:var(--muted)">No orders yet — share the store link!</td></tr>';
+}
+let allOrders=[];
+function applyFilters(){
+  const q=($('search').value||'').toLowerCase();
+  const fs=$('filterStatus').value;
+  const fp=$('filterPay').value;
+  const filtered=allOrders.filter(o=>{
+    if(fs&&o.status!==fs)return false;
+    if(fp&&o.payment_status!==fp)return false;
+    if(q){
+      const hay=(o.order_no+' '+o.customer_name+' '+o.phone+' '+(o.city||'')).toLowerCase();
+      if(!hay.includes(q))return false;
+    }
+    return true;
+  });
+  render(filtered,allOrders);
+}
+async function upd(no,patch){
+  try{await api('/api/admin/orders/'+no,{method:'PATCH',body:JSON.stringify(patch)});login();}
+  catch(e){alert(e.message);}
+}
+if(KEY)login();
+// Auto-refresh every 60 seconds
+setInterval(()=>{if(KEY&&$('panel').style.display!=='none')login();},60000);
+</script>
+</body>
+</html>

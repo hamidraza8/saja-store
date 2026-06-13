@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAJA — Modern Abaya Atelier</title>
+<meta name="description" content="Minimal abayas, custom-fitted in our own atelier. Designed in Abu Dhabi, handcrafted in Karachi. Essentials from AED 219.">
+<meta name="theme-color" content="#1A1A1C">
+<meta property="og:title" content="SAJA — Stillness, worn.">
+<meta property="og:description" content="Minimal abayas, custom-fitted in our own atelier. Designed in Abu Dhabi, handcrafted in Karachi.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://saja.torin.pk">
+<meta property="og:image" content="https://images.pexels.com/photos/35463007/pexels-photo-35463007.jpeg?auto=compress&cs=tinysrgb&w=1200">
+<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'><circle cx='70' cy='70' r='62' fill='none' stroke='%231A1A1C' stroke-width='5'/><path d='M70 22C56 46 86 58 70 80C56 100 84 108 70 122' fill='none' stroke='%231A1A1C' stroke-width='7' stroke-linecap='round'/><circle cx='94' cy='38' r='5' fill='%23A8956B'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1A1C;--paper:#FAF8F3;--card:#fff;--sand:#A8956B;--sand-soft:#F1EBDD;--line:#E8E3D8;--muted:#8A8378;--display:'Marcellus',Georgia,serif;--body:'Outfit',system-ui,sans-serif;--arabic:'Noto Naskh Arabic',serif}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);min-height:100vh}
+img{display:block;width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer}
+.logo svg{width:30px;height:30px}
+.logo .word{font-family:var(--display);font-size:19px;letter-spacing:6px}
+.logo .word small{display:block;font-size:8px;letter-spacing:2.5px;color:var(--muted);font-family:var(--body);font-weight:500}
+.nav-right{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:999px;font-family:var(--body);font-size:12px;font-weight:600;padding:7px 13px;cursor:pointer;color:var(--ink)}
+.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hero{position:relative;height:62vh;min-height:420px;overflow:hidden;background:#ddd}
+.hero img{height:100%;object-fit:cover;object-position:50% 82%}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,248,243,0) 30%,rgba(26,26,28,.6) 100%)}
+.hero .copy{position:absolute;left:0;right:0;bottom:32px;color:#fff}
+.hero .ar{font-family:var(--arabic);font-size:24px;color:#E8DCBE}
+.hero h1{font-family:var(--display);font-size:clamp(30px,5vw,46px);font-weight:400;line-height:1.12;margin:4px 0 6px}
+.hero p{font-size:14px;font-weight:300;opacity:.92;max-width:420px;line-height:1.6}
+.hero .cta{margin-top:16px;border:none;background:var(--sand);color:#1A1A1C;font-family:var(--body);font-weight:700;font-size:14px;padding:13px 26px;border-radius:999px;cursor:pointer}
+.ticker{border-bottom:1px solid var(--line);padding:11px 0;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:center}
+.section{padding:34px 0 6px}
+.eyebrow{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sand);font-weight:700}
+h2{font-family:var(--display);font-size:27px;font-weight:400;margin-top:4px}
+.tabs{display:flex;gap:8px;margin:16px 0 4px;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:14px 0 30px}
+.p-card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer}
+.p-card .ph{aspect-ratio:3/4;overflow:hidden;background:#e6e1d6}
+.p-card .ph img{height:100%;object-fit:cover;object-position:50% 85%;transition:transform .4s}
+.p-card:hover .ph img{transform:scale(1.05)}
+.p-card .info{padding:11px 13px 13px}
+.p-card .nm{font-size:14px;font-weight:600}
+.p-card .tier{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sand);font-weight:700}
+.p-card .pr{font-size:13px;color:var(--muted);margin-top:3px}
+.p-card .pr b{color:var(--ink)}
+.p-card .pr s{margin-left:6px;font-size:11px}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(26,26,28,.55);display:none;align-items:flex-end;justify-content:center;z-index:90}
+.modal.open{display:flex}
+.sheet{background:var(--paper);width:100%;max-width:560px;max-height:92vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:20px 20px 28px}
+@media(min-width:640px){.modal{align-items:center}.sheet{border-radius:20px}}
+.sheet .close{float:right;border:none;background:var(--card);border:1px solid var(--line);border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer}
+.sheet h3{font-family:var(--display);font-size:25px;font-weight:400}
+.sheet .ph{border-radius:14px;overflow:hidden;aspect-ratio:4/5;margin:12px 0;background:#e6e1d6}
+.sheet .ph img{height:100%;object-fit:cover;object-position:50% 85%}
+.lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:13px;font-weight:500;cursor:pointer}
+.opt.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.dot{width:36px;height:36px;border-radius:50%;cursor:pointer;border:2px solid var(--line)}
+.dot.on{outline:3px solid var(--sand-soft);border-color:var(--ink)}
+.measures{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.measures label{font-size:11px;color:var(--muted);font-weight:500;display:block;margin-bottom:4px}
+input,select,textarea{border:1px solid var(--line);border-radius:9px;padding:11px;font-family:var(--body);font-size:14px;background:var(--card);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);border-color:transparent}
+textarea{resize:vertical;min-height:56px}
+.add{width:100%;margin-top:18px;border:none;background:var(--ink);color:#fff;font-family:var(--body);font-weight:700;font-size:15px;padding:15px;border-radius:999px;cursor:pointer}
+.add span{color:var(--sand)}
+/* cart / checkout */
+.cartline{display:flex;gap:12px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.cartline img{width:52px;height:64px;object-fit:cover;border-radius:8px}
+.cartline .ci{flex:1;font-size:13px}
+.cartline .ci b{display:block}
+.cartline .rm{border:none;background:none;color:var(--muted);cursor:pointer;font-size:18px}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.field{margin-bottom:11px}
+.field label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.paychoice{display:flex;flex-direction:column;gap:8px}
+.paychoice .pc{display:flex;gap:10px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:11px;padding:12px 14px;cursor:pointer;font-size:13.5px;font-weight:500}
+.paychoice .pc.on{border-color:var(--ink);background:var(--sand-soft)}
+.totals{border-top:1px dashed var(--line);margin-top:14px;padding-top:12px;font-size:13.5px}
+.totals .tr{display:flex;justify-content:space-between;margin-bottom:5px;color:var(--muted)}
+.totals .tr.big{color:var(--ink);font-weight:700;font-size:17px;font-family:var(--display)}
+.err{color:#9C3D3D;font-size:13px;margin-top:10px;font-weight:500}
+.ok-screen{text-align:center;padding:26px 6px}
+.ok-screen .tick{width:60px;height:60px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-size:28px;margin:0 auto 14px}
+.ok-screen h3{font-family:var(--display);font-size:26px;font-weight:400}
+.ok-screen p{color:var(--muted);font-size:14px;margin:10px 0 16px;line-height:1.6}
+.wa{display:inline-block;background:#1FA855;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:13px 22px;border-radius:999px}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:30px 0;text-align:center}
+footer .ar{font-family:var(--arabic);color:var(--sand);font-size:19px}
+footer .fb{font-family:var(--display);letter-spacing:5px;font-size:16px;margin-top:2px}
+footer p{font-size:11px;color:var(--muted);margin-top:6px;font-weight:300;line-height:1.7}
+.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:24px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:12px 22px;border-radius:999px;opacity:0;transition:all .3s;pointer-events:none;z-index:99}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <div class="logo" onclick="show('home')">
+    <svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="62" fill="none" stroke="#1A1A1C" stroke-width="5"/><path d="M70 22 C56 46 86 58 70 80 C56 100 84 108 70 122" fill="none" stroke="#1A1A1C" stroke-width="7" stroke-linecap="round"/><circle cx="94" cy="38" r="5" fill="#A8956B"/></svg>
+    <div class="word">SAJA<small>MODERN ABAYA ATELIER</small></div>
+  </div>
+  <div class="nav-right">
+    <button class="pill" onclick="show('track')">Track order</button>
+    <button class="pill dark" id="curBtn" onclick="toggleCountry()">🇦🇪 AED</button>
+    <button class="pill" onclick="show('cart')">Bag · <b id="cartCount">0</b></button>
+  </div>
+</div></header>
+
+<div id="view-home">
+  <section class="hero">
+    <img src="https://images.pexels.com/photos/35463007/pexels-photo-35463007.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="SAJA abaya — garment first">
+    <div class="veil"></div>
+    <div class="wrap copy">
+      <div class="ar">سَجَى</div>
+      <h1>Stillness, worn.</h1>
+      <p>“By the night, when it grows still.” Minimal abayas, custom-fitted in our own atelier. Designed in Abu Dhabi · handcrafted in Karachi.</p>
+      <button class="cta" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop the collection</button>
+    </div>
+  </section>
+  <div class="ticker">CUSTOM FIT · NO-IRON NIDA · 10-DAY TAILORING · UAE & PAKISTAN · COD AVAILABLE</div>
+  <div class="wrap section" id="shop">
+    <div class="eyebrow">The first edit</div><h2>Quiet pieces, precise cuts</h2>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<div id="view-cart" style="display:none"><div class="wrap section" style="max-width:600px">
+  <div class="eyebrow">Your bag</div><h2 id="cartTitle">Review & checkout</h2>
+  <div id="cartArea" style="margin-top:14px"></div>
+</div></div>
+
+<div id="view-track" style="display:none"><div class="wrap section" style="max-width:500px">
+  <div class="eyebrow">Order tracking</div><h2>Find your order</h2>
+  <div style="margin-top:16px">
+    <div class="field"><label>Order number</label><input id="t_no" placeholder="SJ..."></div>
+    <div class="field"><label>WhatsApp / phone used at checkout</label><input id="t_phone" placeholder="+971… / +92…"></div>
+    <button class="add" onclick="trackOrder()">Track</button>
+    <div id="trackResult" style="margin-top:16px"></div>
+  </div>
+</div></div>
+
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+
+<footer><div class="ar">سَجَى</div><div class="fb">SAJA</div>
+<p>Designed in Abu Dhabi · Handcrafted in our Karachi atelier<br>© SAJA. Photography: Pexels free licence (replace with brand shoot).</p></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+let PRODUCTS=[], CONFIG={whatsapp:'9715XXXXXXXX',pkrPerAed:76,paymentMethods:{}};
+let country = localStorage.getItem('saja_country') || 'AE';
+let cart = JSON.parse(localStorage.getItem('saja_cart')||'[]');
+const $=id=>document.getElementById(id);
+const cur=()=>country==='PK'?'PKR':'AED';
+const px=a=>country==='PK'?Math.round(a*CONFIG.pkrPerAed):a;
+const fmt=a=>cur()+' '+a.toLocaleString();
+
+async function boot(){
+  const [p,c]=await Promise.all([fetch('/api/products').then(r=>r.json()),fetch('/api/config').then(r=>r.json())]);
+  PRODUCTS=p; CONFIG=c; renderTabs('all'); updateCount(); setCurBtn();
+}
+function setCurBtn(){$('curBtn').textContent=country==='PK'?'🇵🇰 PKR':'🇦🇪 AED';}
+function toggleCountry(){country=country==='AE'?'PK':'AE';localStorage.setItem('saja_country',country);setCurBtn();renderTabs(curTab);if($('view-cart').style.display!=='none')renderCart();toast(country==='PK'?'Showing PKR · JazzCash & COD':'Showing AED · Tabby & COD');}
+
+let curTab='all';
+function renderTabs(sel){
+  curTab=sel;
+  const tiers=[['all','All'],['essentials','Essentials'],['signature','Signature'],['atelier','Atelier — Custom']];
+  $('tabs').innerHTML=tiers.map(([k,l])=>`<button class="tab ${k===sel?'on':''}" onclick="renderTabs('${k}')">${l}</button>`).join('');
+  const list=PRODUCTS.filter(p=>sel==='all'||p.tier===sel);
+  $('grid').innerHTML=list.map(p=>`
+   <div class="p-card" onclick="openProduct('${p.handle}')">
+     <div class="ph"><img loading="lazy" src="${p.image}?auto=compress&cs=tinysrgb&w=500" alt="${p.name}"></div>
+     <div class="info"><div class="tier">${p.tier}</div><div class="nm">${p.name}</div>
+     <div class="pr"><b>${fmt(px(p.price_aed))}</b>${p.compare_aed?`<s>${fmt(px(p.compare_aed))}</s>`:''}</div></div>
+   </div>`).join('');
+}
+
+let sel={};
+function openProduct(handle){
+  const p=PRODUCTS.find(x=>x.handle===handle);
+  const isAtelier=p.tier==='atelier';
+  sel={handle,fabric:p.fabrics[0],color:p.colors[0],size:isAtelier?'Custom':(p.sizes[1]||p.sizes[0]),custom:isAtelier,qty:1};
+  const colorHex={'Midnight Black':'#222226','Charcoal':'#46464e','Mocha':'#6e5544','Stone':'#a9a195','Deep Emerald':'#1d5448','Sage':'#94a58c'};
+  $('sheet').innerHTML=`
+   <button class="close" onclick="$('modal').classList.remove('open')">✕</button>
+   <div class="eyebrow">${p.tier}</div><h3>${p.name}</h3>
+   <div class="ph"><img src="${p.image}?auto=compress&cs=tinysrgb&w=800" alt="${p.name}"></div>
+   <p style="font-size:13.5px;color:var(--muted);line-height:1.6">${p.description}</p>
+   <div class="lbl">Fabric</div><div class="opts">${p.fabrics.map(f=>`<button class="opt ${f===sel.fabric?'on':''}" onclick="pick('fabric','${f}',this)">${f}</button>`).join('')}</div>
+   <div class="lbl">Colour — <span id="colName">${sel.color}</span></div>
+   <div class="opts">${p.colors.map(c=>`<button class="dot ${c===sel.color?'on':''}" title="${c}" style="background:${colorHex[c]||'#999'}" onclick="pick('color','${c}',this);$('colName').textContent='${c}'"></button>`).join('')}</div>
+   ${isAtelier?'':`<div class="lbl">Size</div><div class="opts" id="sizeOpts">${p.sizes.map(s=>`<button class="opt ${s===sel.size?'on':''}" onclick="pick('size','${s}',this)">${s}</button>`).join('')}</div>
+   <div class="lbl"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:13px;font-weight:600;color:#6e5e38"><input type="checkbox" style="width:auto" onchange="toggleCustom(this.checked)"> Made to my measurements (+ ${fmt(px(60))})</label></div>`}
+   <div id="measureBox" style="display:${isAtelier?'block':'none'}">
+     <div class="lbl">Your measurements (cm)</div>
+     <div class="measures">
+       <div><label>Shoulder</label><input id="m_shoulder" type="number" inputmode="decimal" placeholder="38"></div>
+       <div><label>Bust</label><input id="m_bust" type="number" inputmode="decimal" placeholder="96"></div>
+       <div><label>Sleeve length</label><input id="m_sleeve" type="number" inputmode="decimal" placeholder="58"></div>
+       <div><label>Total length</label><input id="m_length" type="number" inputmode="decimal" placeholder="140"></div>
+       <div><label>Waist (optional)</label><input id="m_waist" type="number" inputmode="decimal" placeholder="78"></div>
+       <div><label>Hip (optional)</label><input id="m_hip" type="number" inputmode="decimal" placeholder="102"></div>
+     </div>
+     <div class="lbl">Notes for the tailor</div>
+     <textarea id="m_notes" placeholder="e.g. slightly looser sleeves (English / اردو / عربي welcome)"></textarea>
+     <p style="font-size:11.5px;color:var(--muted);margin-top:8px;font-weight:300">Our tailor confirms every measurement on WhatsApp before cutting fabric.</p>
+   </div>
+   <button class="add" onclick="addToCart()">Add to bag — <span id="modalPrice">${fmt(px(p.price_aed+(isAtelier?0:0)))}</span></button>`;
+  $('modal').classList.add('open');
+  updateModalPrice();
+}
+function pick(k,v,el){sel[k]=v;[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');}
+function toggleCustom(on){sel.custom=on;$('measureBox').style.display=on?'block':'none';updateModalPrice();}
+function updateModalPrice(){
+  const p=PRODUCTS.find(x=>x.handle===sel.handle);
+  const unit=p.price_aed+(sel.custom&&p.tier!=='atelier'?60:0);
+  $('modalPrice').textContent=fmt(px(unit));
+}
+function addToCart(){
+  const p=PRODUCTS.find(x=>x.handle===sel.handle);
+  const item={handle:sel.handle,fabric:sel.fabric,color:sel.color,size:sel.custom?'Custom':sel.size,qty:1};
+  if(sel.custom||p.tier==='atelier'){
+    item.size='Custom';
+    item.measurements={shoulder:$('m_shoulder').value,bust:$('m_bust').value,sleeve:$('m_sleeve').value,length:$('m_length').value,waist:$('m_waist').value,hip:$('m_hip').value};
+    item.tailor_notes=$('m_notes').value;
+    for(const k of ['shoulder','bust','sleeve','length']){
+      if(!(parseFloat(item.measurements[k])>10)){toast('Please fill shoulder, bust, sleeve & length');return;}
+    }
+  }
+  cart.push(item); save(); $('modal').classList.remove('open');
+  toast('Added to your bag ✓'); updateCount();
+}
+function save(){localStorage.setItem('saja_cart',JSON.stringify(cart));}
+function updateCount(){$('cartCount').textContent=cart.length;}
+function show(v){$('view-home').style.display=v==='home'?'block':'none';$('view-cart').style.display=v==='cart'?'block':'none';$('view-track').style.display=v==='track'?'block':'none';if(v==='cart')renderCart();window.scrollTo(0,0);}
+
+let quote=null, paying='cod', promo='';
+async function renderCart(){
+  if(cart.length===0){$('cartArea').innerHTML='<p style="color:var(--muted)">Your bag is empty — go find your stillness.</p><button class="pill dark" style="margin-top:14px" onclick="show(\'home\')">Back to the collection</button>';return;}
+  const methods=Object.entries(CONFIG.paymentMethods).filter(([k,m])=>m[country]);
+  if(!methods.find(([k])=>k===paying))paying=methods[0][0];
+  const lines=cart.map((it,i)=>{const p=PRODUCTS.find(x=>x.handle===it.handle);return `
+    <div class="cartline"><img src="${p.image}?auto=compress&cs=tinysrgb&w=160" alt="">
+    <div class="ci"><b>${p.name}</b>${it.fabric} · ${it.color} · ${it.size}</div>
+    <div class="qty"><button onclick="chQty(${i},-1)">−</button>${it.qty}<button onclick="chQty(${i},1)">+</button></div>
+    <button class="rm" onclick="rmItem(${i})">✕</button></div>`;}).join('');
+  $('cartArea').innerHTML=`${lines}
+   <div class="field" style="margin-top:16px"><label>Promo code</label>
+     <div style="display:flex;gap:8px"><input id="promoIn" placeholder="SAJA20" value="${promo}" style="text-transform:uppercase"><button class="pill dark" onclick="promo=$('promoIn').value;refreshQuote()">Apply</button></div></div>
+   <h3 style="font-family:var(--display);font-weight:400;font-size:21px;margin:18px 0 10px">Delivery details</h3>
+   <div class="row2"><div class="field"><label>Full name</label><input id="f_name"></div>
+   <div class="field"><label>WhatsApp number</label><input id="f_phone" placeholder="+971… / +92…"></div></div>
+   <div class="field"><label>Email (optional — for order updates)</label><input id="f_email" type="email" placeholder="you@example.com"></div>
+   <div class="row2"><div class="field"><label>Country</label>
+     <select id="f_country" onchange="country=this.value;localStorage.setItem('saja_country',country);setCurBtn();renderCart()">
+       <option value="AE" ${country==='AE'?'selected':''}>United Arab Emirates</option>
+       <option value="PK" ${country==='PK'?'selected':''}>Pakistan</option></select></div>
+   <div class="field"><label>City</label><input id="f_city"></div></div>
+   <div class="field"><label>Delivery address</label><textarea id="f_addr"></textarea></div>
+   <div class="lbl">Payment</div>
+   <div class="paychoice">${methods.map(([k,m])=>`<label class="pc ${k===paying?'on':''}"><input type="radio" name="pm" style="width:auto" ${k===paying?'checked':''} onchange="paying='${k}';renderCart()">${m.label}</label>`).join('')}</div>
+   <div class="totals" id="totals">Calculating…</div>
+   <div class="err" id="err"></div>
+   <button class="add" id="placeBtn" onclick="placeOrder()">Place order</button>
+   <p style="font-size:11px;color:var(--muted);margin-top:10px;font-weight:300;text-align:center">Custom pieces: our tailor confirms your measurements on WhatsApp before stitching begins.</p>`;
+  refreshQuote();
+}
+function chQty(i,d){cart[i].qty=Math.max(1,(cart[i].qty||1)+d);save();renderCart();}
+function rmItem(i){cart.splice(i,1);save();updateCount();renderCart();}
+async function refreshQuote(){
+  const r=await fetch('/api/orders/quote',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({items:cart,country,payment_method:paying,promo})});
+  const d=await r.json();
+  if(!r.ok){$('totals').innerHTML='';$('err').textContent=d.error;return;}
+  quote=d;$('err').textContent='';
+  $('totals').innerHTML=`
+    <div class="tr"><span>Subtotal</span><span>${d.currency} ${d.subtotal.toLocaleString()}</span></div>
+    ${d.discount?`<div class="tr"><span>Promo</span><span>− ${d.currency} ${d.discount.toLocaleString()}</span></div>`:''}
+    ${d.cod_fee?`<div class="tr"><span>COD handling</span><span>${d.currency} ${d.cod_fee.toLocaleString()}</span></div>`:''}
+    <div class="tr"><span>Delivery</span><span>Free</span></div>
+    <div class="tr big"><span>Total</span><span>${d.currency} ${d.total.toLocaleString()}</span></div>`;
+}
+async function placeOrder(){
+  $('placeBtn').disabled=true;$('placeBtn').textContent='Placing order…';
+  const body={items:cart,country,payment_method:paying,promo,
+    customer_name:$('f_name').value,phone:$('f_phone').value,
+    email:$('f_email').value||undefined,
+    city:$('f_city').value,address:$('f_addr').value};
+  const r=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const d=await r.json();
+  $('placeBtn').disabled=false;$('placeBtn').textContent='Place order';
+  if(!r.ok){$('err').textContent=d.error;return;}
+  cart=[];save();updateCount();
+  const wa=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('Salam! My SAJA order number is '+d.order_no)}`;
+  $('cartArea').innerHTML=`<div class="ok-screen"><div class="tick">✓</div>
+    <h3>Shukriya, order received</h3>
+    <p>Order <b>${d.order_no}</b> · Total <b>${d.currency} ${d.total.toLocaleString()}</b><br>
+    ${d.payment.kind==='instructions'?d.payment.instructions:'We will WhatsApp you shortly to confirm your order'+(quote&&quote.lines.some(l=>l.size==='Custom')?' and your measurements before stitching begins.':'.')}</p>
+    <a class="wa" target="_blank" rel="noopener" href="${wa}">Message us on WhatsApp</a></div>`;
+}
+async function trackOrder(){
+  const no=$('t_no').value.trim(), phone=$('t_phone').value.trim();
+  if(!no||!phone){$('trackResult').innerHTML='<p class="err">Enter your order number and phone.</p>';return;}
+  const r=await fetch('/api/orders/'+encodeURIComponent(no)+'?phone='+encodeURIComponent(phone));
+  if(!r.ok){$('trackResult').innerHTML='<p class="err">Order not found — check the number and phone.</p>';return;}
+  const o=await r.json();
+  const steps=['new','confirmed','stitching','qc','shipped','delivered'];
+  const idx=steps.indexOf(o.status);
+  const bar=steps.map((s,i)=>`<div style="flex:1;text-align:center">
+    <div style="height:4px;border-radius:2px;background:${i<=idx?'var(--sand)':'var(--line)'};margin-bottom:6px"></div>
+    <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:${i<=idx?'var(--ink)':'var(--muted)'};font-weight:${i===idx?'700':'400'}">${s==='qc'?'QC':s}</span></div>`).join('');
+  $('trackResult').innerHTML=`
+    <div style="background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <div><div class="eyebrow">${o.order_no}</div><div style="font-size:12px;color:var(--muted)">${o.created_at} UTC</div></div>
+        <div style="text-align:right"><b>${o.currency} ${o.total.toLocaleString()}</b><br><span class="badge" style="font-size:10px">${o.payment_status}</span></div>
+      </div>
+      <div style="display:flex;gap:4px;margin-bottom:16px">${bar}</div>
+      ${o.items.map(i=>`<div style="font-size:13px;padding:6px 0;border-top:1px dashed var(--line)"><b>${i.name}</b> x${i.qty} — ${i.fabric}, ${i.color}, ${i.size}</div>`).join('')}
+      ${o.status==='shipped'?`<p style="margin-top:12px;font-size:13px;color:var(--sand);font-weight:600">Your order is on its way!</p>`:''}
+    </div>`;
+}
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+boot();
+</script>
+</body>
+</html>
