@@ -4,245 +4,281 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAJA — Modern Abaya Atelier</title>
 <meta name="description" content="Minimal abayas, custom-fitted in our own Karachi atelier. Essentials from Rs. 16,644. Free delivery across Pakistan.">
-<meta name="theme-color" content="#0b0b0b">
+<meta name="theme-color" content="#22262b">
 <meta property="og:title" content="SAJA — Stillness, worn.">
 <meta property="og:description" content="Minimal abayas, custom-fitted in our own Karachi atelier.">
 <meta property="og:type" content="website"><meta property="og:url" content="https://saja.torin.pk">
-<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'><circle cx='70' cy='70' r='62' fill='none' stroke='%230b0b0b' stroke-width='5'/><path d='M70 22C56 46 86 58 70 80C56 100 84 108 70 122' fill='none' stroke='%230b0b0b' stroke-width='7' stroke-linecap='round'/><circle cx='94' cy='38' r='5' fill='%23A8956B'/></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'><circle cx='70' cy='70' r='62' fill='none' stroke='%2322262b' stroke-width='5'/><path d='M70 22C56 46 86 58 70 80C56 100 84 108 70 122' fill='none' stroke='%2322262b' stroke-width='7' stroke-linecap='round'/><circle cx='94' cy='38' r='5' fill='%23757c83'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Naskh+Arabic:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0b0b0b;--paper:#faf9f6;--cream:#f0eee9;--white:#fff;
-  --gold:#A8956B;--gold-soft:#f1ebdd;--line:#e0ddd6;--muted:#888;--red:#d02e2e;
-  --heading:'Cormorant Garamond',Georgia,serif;
-  --body:'Montserrat',system-ui,sans-serif;
+  --bg:#eef0f1;--bg-soft:#e6e9ea;--surface:#e1e5e7;
+  --ink:#22262b;--ink-soft:#3a4047;--muted:#757c83;
+  --line:#d0d4d7;--slate:#262b31;--paper:#f5f6f6;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',system-ui,sans-serif;
   --arabic:'Noto Naskh Arabic',serif;
-  --site-width:1440px;--gutter:60px;--gutter-m:20px;--radius:8px
+  --site-width:1440px;--gutter:60px;--gutter-m:20px
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:var(--body);background:var(--paper);color:var(--ink);font-weight:400;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-weight:400;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-button{font-family:var(--body);cursor:pointer}
+button{font-family:var(--sans);cursor:pointer}
+::selection{background:var(--slate);color:var(--paper)}
 .container{max-width:var(--site-width);margin:0 auto;padding:0 var(--gutter)}
 @media(max-width:768px){.container{padding:0 var(--gutter-m)}}
 
+/* Eyebrow */
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* Headings */
+h1,h2,.display{font-family:var(--serif);font-weight:300;letter-spacing:-.01em}
+h1{font-size:clamp(48px,6.4vw,104px);line-height:.97}
+h2{font-size:clamp(34px,4vw,60px);line-height:1}
+em{font-style:italic}
+
 /* ============ HEADER ============ */
-header{position:sticky;top:0;z-index:60;background:var(--white);height:60px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
-.hdr{max-width:var(--site-width);margin:0 auto;padding:0 var(--gutter);width:100%;display:flex;align-items:center;justify-content:space-between}
-@media(max-width:768px){.hdr{padding:0 var(--gutter-m)}}
-.logo{cursor:pointer;display:flex;align-items:center;gap:10px}
-.logo svg{width:30px;height:30px}
-.logo-name{font-family:var(--heading);font-size:24px;font-weight:500;letter-spacing:4px}
-.hdr-nav{display:flex;gap:28px;position:absolute;left:50%;transform:translateX(-50%)}
-@media(max-width:768px){.hdr-nav{display:none}}
-.hdr-nav a{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:color .2s;padding:4px 0;border-bottom:1.5px solid transparent}
-.hdr-nav a:hover,.hdr-nav a.on{color:var(--ink);border-bottom-color:var(--ink)}
-.hdr-right{display:flex;align-items:center;gap:16px}
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:22px 48px;transition:background .5s,padding .5s,box-shadow .5s}
+header.nav.scrolled{background:rgba(238,240,241,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:14px 48px;box-shadow:0 1px 0 var(--line)}
+@media(max-width:768px){header.nav{padding:16px 20px;grid-template-columns:auto 1fr auto}header.nav.scrolled{padding:12px 20px}}
+.brand{font-family:var(--serif);font-size:26px;letter-spacing:.42em;text-transform:uppercase;font-weight:500;text-align:center;padding-left:.42em;cursor:pointer;display:flex;align-items:center;gap:10px}
+.brand svg{width:30px;height:30px}
+.nav-links{display:flex;gap:34px}
+.nav-links.right{justify-content:flex-end}
+@media(max-width:768px){.nav-links.left{display:none}}
+.nav-links a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;position:relative;padding-bottom:4px;cursor:pointer}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.6,0,.2,1)}
+.nav-links a:hover::after,.nav-links a.on::after{transform:scaleX(1);transform-origin:left}
+.hdr-right{display:flex;align-items:center;gap:16px;justify-content:flex-end}
 .hdr-icon{background:none;border:none;color:var(--ink);position:relative;padding:4px}
 .hdr-icon svg{width:20px;height:20px}
-.hdr-icon .count{position:absolute;top:-4px;right:-6px;background:var(--ink);color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:grid;place-items:center}
-.hdr-cur{font-size:11px;font-weight:600;letter-spacing:.5px;background:none;border:none;color:var(--muted)}
+.hdr-icon .count{position:absolute;top:-4px;right:-6px;background:var(--ink);color:var(--paper);font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:grid;place-items:center}
+.hdr-cur{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:none;border:none;color:var(--muted)}
 
 /* ============ HERO ============ */
-.hero{position:relative;overflow:hidden;background:var(--cream)}
+.hero{position:relative;overflow:hidden;background:var(--surface)}
 .hero-slides{display:flex;transition:transform .6s ease}
 .hero-slide{min-width:100%;position:relative}
 .hero-slide img{width:100%;height:600px;object-fit:cover;object-position:center top}
 @media(max-width:768px){.hero-slide img{height:75vh}}
-.hero-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(0deg,rgba(0,0,0,.45) 0%,transparent 50%)}
-.hero-text{padding:50px var(--gutter) 50px;color:#fff;max-width:var(--site-width);margin:0 auto;width:100%}
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(0deg,rgba(38,43,49,.55) 0%,transparent 50%)}
+.hero-text{padding:50px var(--gutter) 50px;color:var(--paper);max-width:var(--site-width);margin:0 auto;width:100%}
 @media(max-width:768px){.hero-text{padding:30px var(--gutter-m)}}
-.hero-text h1{font-family:var(--heading);font-size:clamp(32px,5vw,56px);font-weight:400;line-height:1.1;margin-bottom:10px}
-.hero-text p{font-size:14px;font-weight:300;opacity:.9;max-width:420px;line-height:1.7;margin-bottom:20px}
-.hero-btn{display:inline-block;background:var(--white);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 36px;border:none;border-radius:var(--radius);transition:all .2s}
-.hero-btn:hover{background:var(--ink);color:#fff}
+.hero-text h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);font-weight:300;line-height:1.1;margin-bottom:10px}
+.hero-text p{font-family:var(--sans);font-size:14px;font-weight:300;opacity:.9;max-width:420px;line-height:1.7;margin-bottom:20px}
+.hero-btn{display:inline-block;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:17px 34px;border:none;cursor:pointer;transition:background .35s,transform .35s}
+.hero-btn:hover{background:#fff;transform:translateY(-2px)}
 .hero-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
-.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer}
-.hero-dot.on{background:#fff}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(245,246,246,.3);border:none;cursor:pointer;transition:background .3s}
+.hero-dot.on{background:var(--paper)}
 
 /* ============ PRODUCT GRID ============ */
-.products{padding:50px 0 60px}
-.products .sec-title{font-family:var(--heading);font-size:28px;font-weight:400;text-align:center;margin-bottom:8px}
-.products .sec-sub{text-align:center;font-size:12px;color:var(--muted);letter-spacing:.5px;margin-bottom:30px}
+.products{padding:60px 0 70px}
+.products .sec-title{font-family:var(--serif);font-size:clamp(34px,4vw,60px);font-weight:300;text-align:center;margin-bottom:8px;line-height:1}
+.products .sec-sub{text-align:center;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
 .filter-row{display:flex;justify-content:center;gap:6px;margin-bottom:30px;flex-wrap:wrap}
-.ftab{padding:8px 20px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--line);background:var(--white);color:var(--muted);border-radius:var(--radius);cursor:pointer;transition:all .15s}
+.ftab{padding:9px 22px;font-size:12px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:all .35s;font-family:var(--sans)}
 .ftab:hover{border-color:var(--ink);color:var(--ink)}
-.ftab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ftab.on{background:var(--slate);color:var(--paper);border-color:var(--slate)}
 .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 @media(max-width:1024px){.pgrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:640px){.pgrid{grid-template-columns:repeat(2,1fr);gap:12px}}
 
-/* Product Card — CAS style: minimal, image-dominant */
-.pc{cursor:pointer;position:relative}
-.pc .pc-img{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--cream);aspect-ratio:2/3}
+/* Product Card */
+.pc{cursor:pointer;position:relative;overflow:hidden;background:var(--surface);transform-style:preserve-3d;will-change:transform;transition:transform .4s cubic-bezier(.2,.6,.2,1),box-shadow .4s}
+.pc .pc-img{position:relative;overflow:hidden;background:var(--surface);aspect-ratio:2/3}
 .pc .pc-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease}
 .pc:hover .pc-img img{transform:scale(1.03)}
-.pc .pc-sale{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 8px;border-radius:4px}
-.pc .pc-body{padding:10px 4px 6px}
-.pc .pc-name{font-size:13px;font-weight:500;margin-bottom:2px}
-.pc .pc-sub{font-size:11px;color:var(--muted);font-weight:400}
-.pc .pc-price{font-size:13px;font-weight:600;margin-top:4px}
-.pc .pc-price s{font-weight:400;color:var(--muted);font-size:11px;margin-left:4px}
+.pc .pc-sale{position:absolute;top:10px;left:10px;background:var(--slate);color:var(--paper);font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;z-index:3}
+.pc .pc-body{padding:14px 4px 8px}
+.pc .pc-name{font-family:var(--serif);font-size:18px;font-weight:400;margin-bottom:2px}
+.pc .pc-sub{font-size:11px;color:var(--muted);font-weight:300;letter-spacing:.04em}
+.pc .pc-price{font-family:var(--serif);font-size:16px;font-weight:500;margin-top:4px}
+.pc .pc-price s{font-weight:300;color:var(--muted);font-size:13px;margin-left:4px}
+.pc .tag{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;color:var(--paper);z-index:2;pointer-events:none;transform:translateZ(40px);background:linear-gradient(to top,rgba(20,24,28,.62) 0%,rgba(20,24,28,.05) 45%,transparent 70%);opacity:0;transition:opacity .4s}
+.pc:hover .tag{opacity:1}
+.pc .tag .k{font-size:10px;letter-spacing:.26em;text-transform:uppercase;opacity:.82;margin-bottom:8px}
+.pc .tag .n{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1}
+.pc .tag .more{margin-top:14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.pc:hover .tag .more{opacity:.9;transform:none}
+.pc:hover{box-shadow:0 50px 90px -40px rgba(20,24,28,.35)}
 
 /* ============ FEATURES STRIP ============ */
-.feat-strip{background:var(--cream);padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feat-strip{background:var(--bg-soft);padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
 @media(max-width:768px){.feat-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
 .feat{padding:10px}
-.feat h4{font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:4px}
-.feat p{font-size:11px;color:var(--muted);line-height:1.5}
+.feat h4{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.1em;margin-bottom:4px}
+.feat p{font-size:11px;color:var(--muted);line-height:1.5;font-weight:300}
 
 /* ============ PDP ============ */
-.pdp{padding:30px 0 60px}
+.pdp{padding:30px 0 60px;padding-top:100px}
 .pdp-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
 @media(max-width:768px){.pdp-grid{grid-template-columns:1fr;gap:20px}}
 .pdp-gallery{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 @media(max-width:768px){.pdp-gallery{grid-template-columns:1fr}}
-.gal-img{overflow:hidden;border-radius:var(--radius);background:var(--cream);aspect-ratio:2/3}
+.gal-img{overflow:hidden;background:var(--surface);aspect-ratio:2/3}
 .gal-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .gal-img.gal-hero{grid-column:1/-1;aspect-ratio:3/4}
 
-.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:16px;letter-spacing:.3px}
-.breadcrumb a{color:var(--gold);cursor:pointer}
+.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:16px;letter-spacing:.04em}
+.breadcrumb a{color:var(--ink-soft);cursor:pointer;font-weight:500}
 .breadcrumb a:hover{text-decoration:underline}
 
-.pdp-info{position:sticky;top:80px}
+.pdp-info{position:sticky;top:100px}
 @media(max-width:768px){.pdp-info{position:static}}
-.pdp-info .pi-tier{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600}
-.pdp-info h1{font-family:var(--heading);font-size:32px;font-weight:400;margin:8px 0 4px}
-.pdp-info .pi-price{font-size:22px;font-weight:600}
-.pdp-info .pi-price s{font-size:15px;color:var(--muted);font-weight:400;margin-left:6px}
-.pdp-info .pi-desc{font-size:13px;color:var(--muted);line-height:1.75;margin:16px 0 24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.pdp-info .pi-tier{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.pdp-info h1{font-family:var(--serif);font-size:32px;font-weight:300;margin:8px 0 4px}
+.pdp-info .pi-price{font-family:var(--serif);font-size:22px;font-weight:500}
+.pdp-info .pi-price s{font-size:15px;color:var(--muted);font-weight:300;margin-left:6px}
+.pdp-info .pi-desc{font-size:13px;color:var(--muted);line-height:1.75;margin:16px 0 24px;padding-bottom:24px;border-bottom:1px solid var(--line);font-weight:300}
 
 .opt-sec{margin-bottom:20px}
-.opt-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.opt-lbl .val{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0;font-size:12px}
+.opt-lbl{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.opt-lbl .val{color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:12px}
 .opts{display:flex;gap:6px;flex-wrap:wrap}
-.opt{padding:9px 18px;border:1px solid var(--line);background:var(--white);font-size:12px;font-weight:500;cursor:pointer;border-radius:var(--radius);transition:all .15s;font-family:var(--body)}
+.opt{padding:9px 18px;border:1px solid var(--line);background:transparent;font-size:12px;font-weight:400;cursor:pointer;transition:all .35s;font-family:var(--sans);letter-spacing:.04em}
 .opt:hover{border-color:var(--ink)}
-.opt.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.opt-desc{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5}
+.opt.on{background:var(--slate);color:var(--paper);border-color:var(--slate)}
+.opt-desc{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5;font-weight:300}
 
-.dot{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid var(--line);transition:all .15s}
-.dot:hover{border-color:#888}
-.dot.on{border-color:var(--ink);box-shadow:0 0 0 3px var(--gold-soft)}
+.dot{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid var(--line);transition:all .35s}
+.dot:hover{border-color:var(--muted)}
+.dot.on{border-color:var(--ink);box-shadow:0 0 0 3px var(--bg-soft)}
 
-.sg-link{font-size:11px;color:var(--gold);cursor:pointer;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.sg-link{font-size:11px;color:var(--ink-soft);cursor:pointer;font-weight:500;text-decoration:underline;text-underline-offset:3px}
 
-.custom-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--line);background:var(--white);cursor:pointer;margin-top:8px;border-radius:var(--radius);transition:all .15s}
-.custom-toggle:hover{border-color:var(--gold)}
-.custom-toggle.on{border-color:var(--ink);background:var(--gold-soft)}
+.custom-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--line);background:transparent;cursor:pointer;margin-top:8px;transition:all .35s}
+.custom-toggle:hover{border-color:var(--ink)}
+.custom-toggle.on{border-color:var(--ink);background:var(--bg-soft)}
 .custom-toggle input[type=checkbox]{width:auto;accent-color:var(--ink)}
 
 .measures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.measures label{font-size:10px;color:var(--muted);font-weight:500;display:block;margin-bottom:3px}
-input,select,textarea{border:1px solid var(--line);padding:11px 14px;font-family:var(--body);font-size:13px;background:var(--white);color:var(--ink);width:100%;border-radius:var(--radius);transition:border-color .15s}
+.measures label{font-size:10px;color:var(--muted);font-weight:400;display:block;margin-bottom:3px}
+input,select,textarea{border:1px solid var(--line);padding:11px 14px;font-family:var(--sans);font-size:13px;background:transparent;color:var(--ink);width:100%;transition:border-color .35s}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink)}
 textarea{resize:vertical;min-height:56px}
 
-.qty-row{display:flex;align-items:center;border:1px solid var(--line);border-radius:var(--radius);width:fit-content}
-.qty-row button{width:40px;height:40px;border:none;background:var(--white);font-size:15px;font-weight:500;border-radius:var(--radius)}
-.qty-row button:hover{background:var(--cream)}
-.qty-row span{width:36px;text-align:center;font-size:14px;font-weight:600;border-left:1px solid var(--line);border-right:1px solid var(--line);line-height:40px}
+.qty-row{display:flex;align-items:center;border:1px solid var(--line);width:fit-content}
+.qty-row button{width:40px;height:40px;border:none;background:transparent;font-size:15px;font-weight:400;font-family:var(--sans)}
+.qty-row button:hover{background:var(--bg-soft)}
+.qty-row span{width:36px;text-align:center;font-size:14px;font-weight:500;border-left:1px solid var(--line);border-right:1px solid var(--line);line-height:40px}
 
-.add-btn{width:100%;border:none;background:var(--ink);color:#fff;font-weight:700;font-size:12px;padding:16px;border-radius:var(--radius);letter-spacing:1.5px;text-transform:uppercase;margin-top:18px;transition:background .2s}
-.add-btn:hover{background:#333}
-.add-btn:disabled{opacity:.35;cursor:not-allowed}
+/* Primary button (Elara .btn) */
+.add-btn,.btn{width:100%;border:none;background:var(--slate);color:var(--paper);font-family:var(--sans);font-weight:500;font-size:12px;padding:17px 34px;letter-spacing:.18em;text-transform:uppercase;margin-top:18px;transition:background .35s,transform .35s;cursor:pointer}
+.add-btn:hover,.btn:hover{background:#14181c;transform:translateY(-2px)}
+.add-btn:disabled,.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+
+/* Arrow link */
+.link-arrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;display:inline-flex;gap:10px;align-items:center}
+.link-arrow span{transition:transform .35s}
+.link-arrow:hover span{transform:translateX(6px)}
 
 .pdp-accord{border-top:1px solid var(--line);margin-top:24px}
 .acc-item{border-bottom:1px solid var(--line)}
-.acc-head{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.acc-head{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
 .acc-head:after{content:'+';font-size:16px;font-weight:300}
 .acc-item.open .acc-head:after{content:'\2212'}
-.acc-body{display:none;padding:0 0 14px;font-size:12px;color:var(--muted);line-height:1.7}
+.acc-body{display:none;padding:0 0 14px;font-size:12px;color:var(--muted);line-height:1.7;font-weight:300}
 .acc-item.open .acc-body{display:block}
-.measure-note{font-size:11px;color:#6e5e38;margin-top:10px;line-height:1.6;padding:12px 14px;background:var(--gold-soft);border-radius:var(--radius)}
+.measure-note{font-size:11px;color:var(--ink-soft);margin-top:10px;line-height:1.6;padding:12px 14px;background:var(--bg-soft)}
 
 /* ============ CART ============ */
-.cart-wrap{max-width:680px;margin:0 auto;padding:0 var(--gutter)}
-@media(max-width:768px){.cart-wrap{padding:0 var(--gutter-m)}}
-.cart-title{font-family:var(--heading);font-size:28px;font-weight:400;margin-bottom:6px;padding-top:40px}
-.cart-count-txt{font-size:12px;color:var(--muted);margin-bottom:20px}
+.cart-wrap{max-width:680px;margin:0 auto;padding:0 var(--gutter);padding-top:100px}
+@media(max-width:768px){.cart-wrap{padding:0 var(--gutter-m);padding-top:90px}}
+.cart-title{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:300;margin-bottom:6px}
+.cart-count-txt{font-size:12px;color:var(--muted);margin-bottom:20px;letter-spacing:.04em}
 .cline{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
-.cline img{width:80px;height:106px;object-fit:cover;border-radius:var(--radius);cursor:pointer}
+.cline img{width:80px;height:106px;object-fit:cover;cursor:pointer}
 .cline .ci{flex:1;font-size:13px}
-.cline .ci b{display:block;font-size:13px;font-weight:600;margin-bottom:2px}
-.cline .ci .meta{color:var(--muted);font-size:11px;line-height:1.5}
-.cline .ci .cp{font-weight:600;margin-top:6px}
-.cline .rm{border:none;background:none;color:var(--muted);cursor:pointer;font-size:11px;text-decoration:underline;align-self:flex-start;font-family:var(--body)}
-.cline .rm:hover{color:var(--red)}
-.cq{display:flex;align-items:center;border:1px solid var(--line);border-radius:var(--radius);width:fit-content;margin-top:6px}
-.cq button{width:28px;height:28px;border:none;background:var(--white);font-size:13px;font-family:var(--body);border-radius:var(--radius)}
-.cq span{width:28px;text-align:center;font-size:12px;font-weight:600;border-left:1px solid var(--line);border-right:1px solid var(--line);line-height:28px}
+.cline .ci b{display:block;font-size:13px;font-weight:500;margin-bottom:2px}
+.cline .ci .meta{color:var(--muted);font-size:11px;line-height:1.5;font-weight:300}
+.cline .ci .cp{font-family:var(--serif);font-weight:500;margin-top:6px;font-size:15px}
+.cline .rm{border:none;background:none;color:var(--muted);cursor:pointer;font-size:11px;text-decoration:underline;align-self:flex-start;font-family:var(--sans);letter-spacing:.04em}
+.cline .rm:hover{color:var(--ink)}
+.cq{display:flex;align-items:center;border:1px solid var(--line);width:fit-content;margin-top:6px}
+.cq button{width:28px;height:28px;border:none;background:transparent;font-size:13px;font-family:var(--sans)}
+.cq span{width:28px;text-align:center;font-size:12px;font-weight:500;border-left:1px solid var(--line);border-right:1px solid var(--line);line-height:28px}
 
 .field{margin-bottom:12px}
-.field label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:5px}
+.field label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .paychoice{display:flex;flex-direction:column;gap:6px}
-.paychoice .pc{display:flex;gap:10px;align-items:center;border:1px solid var(--line);padding:12px 16px;cursor:pointer;font-size:12px;font-weight:500;border-radius:var(--radius);transition:all .15s}
+.paychoice .pc{display:flex;gap:10px;align-items:center;border:1px solid var(--line);padding:12px 16px;cursor:pointer;font-size:12px;font-weight:400;transition:all .35s}
 .paychoice .pc:hover{border-color:var(--ink)}
-.paychoice .pc.on{border-color:var(--ink);background:var(--gold-soft)}
+.paychoice .pc.on{border-color:var(--ink);background:var(--bg-soft)}
 .totals{border-top:2px solid var(--ink);margin-top:18px;padding-top:14px;font-size:13px}
 .totals .tr{display:flex;justify-content:space-between;margin-bottom:6px;color:var(--muted)}
-.totals .tr.big{color:var(--ink);font-weight:700;font-size:18px;margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
-.err{color:var(--red);font-size:12px;margin-top:8px;font-weight:500}
+.totals .tr.big{color:var(--ink);font-family:var(--serif);font-weight:500;font-size:20px;margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
+.err{color:#c0392b;font-size:12px;margin-top:8px;font-weight:500}
 
 .ok-screen{text-align:center;padding:50px 0}
-.ok-screen h3{font-family:var(--heading);font-size:30px;font-weight:400;margin-bottom:10px}
-.ok-screen p{color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.7}
-.wa-btn{display:inline-block;background:#25D366;color:#fff;font-weight:700;font-size:11px;padding:14px 28px;border-radius:var(--radius);letter-spacing:1px;text-transform:uppercase;text-decoration:none}
+.ok-screen h3{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:300;margin-bottom:10px}
+.ok-screen p{color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.7;font-weight:300}
+.wa-btn{display:inline-block;background:var(--slate);color:var(--paper);font-family:var(--sans);font-weight:500;font-size:12px;padding:17px 34px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .35s,transform .35s}
+.wa-btn:hover{background:#14181c;transform:translateY(-2px)}
 
 /* ============ SIZE GUIDE ============ */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal-overlay{position:fixed;inset:0;background:rgba(38,43,49,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
 .modal-overlay.open{display:flex}
-.modal-box{background:var(--white);padding:28px;max-width:500px;width:100%;max-height:85vh;overflow-y:auto;border-radius:var(--radius)}
+.modal-box{background:var(--bg);padding:28px;max-width:500px;width:100%;max-height:85vh;overflow-y:auto}
 .modal-box .close{float:right;border:none;background:none;font-size:18px;cursor:pointer;color:var(--muted)}
-.modal-box h3{font-family:var(--heading);font-size:24px;font-weight:400;margin-bottom:14px}
+.modal-box h3{font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:14px}
 .sg-table{width:100%;border-collapse:collapse;font-size:12px}
-.sg-table th{text-align:left;padding:8px 10px;background:var(--ink);color:#fff;font-weight:600;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.sg-table th{text-align:left;padding:8px 10px;background:var(--slate);color:var(--paper);font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
 .sg-table td{padding:8px 10px;border-bottom:1px solid var(--line)}
-.sg-table tr:hover td{background:var(--cream)}
+.sg-table tr:hover td{background:var(--bg-soft)}
 
-.badge{display:inline-block;padding:3px 10px;font-size:10px;font-weight:700;background:var(--gold-soft);color:#6e5e38;border-radius:4px}
+.badge{display:inline-block;padding:3px 10px;font-size:10px;font-weight:500;background:var(--bg-soft);color:var(--ink-soft);letter-spacing:.04em}
 
 /* ============ FOOTER ============ */
-footer{background:var(--ink);color:#fff;padding:48px 0 0;margin-top:60px}
+footer{background:var(--slate);color:var(--paper);padding:48px 0 0;margin-top:60px}
 .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
 @media(max-width:768px){.fgrid{grid-template-columns:1fr 1fr;gap:24px}}
 @media(max-width:480px){.fgrid{grid-template-columns:1fr}}
-footer .fbrand .ar{font-family:var(--arabic);color:var(--gold);font-size:22px}
-footer .fbrand .fname{font-family:var(--heading);font-size:20px;letter-spacing:4px;margin:2px 0 10px}
-footer .fbrand p{font-size:11px;color:rgba(255,255,255,.4);line-height:1.7}
-footer h4{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
-footer ul{list-style:none;font-size:12px;color:rgba(255,255,255,.55)}
-footer ul li{margin-bottom:7px;cursor:pointer;transition:color .15s}
-footer ul li:hover{color:#fff}
-footer .fbot{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-footer .fbot span{font-size:10px;color:rgba(255,255,255,.2)}
-footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
+footer .fbrand .ar{font-family:var(--arabic);color:#9aa1a8;font-size:22px}
+footer .fbrand .fname{font-family:var(--serif);font-size:20px;letter-spacing:.42em;margin:2px 0 10px;font-weight:300}
+footer .fbrand p{font-size:11px;color:#c2c7cc;line-height:1.75;font-weight:300}
+footer h4{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#9aa1a8;font-weight:500;margin-bottom:12px}
+footer ul{list-style:none;font-size:12px;color:rgba(245,246,246,.5);font-weight:300}
+footer ul li{margin-bottom:7px;cursor:pointer;transition:color .35s}
+footer ul li:hover{color:var(--paper)}
+footer .fbot{border-top:1px solid rgba(245,246,246,.08);margin-top:36px;padding:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+footer .fbot span{font-size:10px;color:rgba(245,246,246,.2)}
+footer .fpay{font-size:10px;color:rgba(245,246,246,.35)}
 
 /* ============ MISC ============ */
-.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:24px;background:var(--ink);color:#fff;font-size:12px;font-weight:600;padding:12px 24px;border-radius:var(--radius);opacity:0;transition:all .3s;pointer-events:none;z-index:99;white-space:nowrap}
+.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:24px;background:var(--slate);color:var(--paper);font-size:12px;font-weight:500;padding:12px 24px;opacity:0;transition:all .3s;pointer-events:none;z-index:99;white-space:nowrap;letter-spacing:.04em}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .view{display:none}.view.active{display:block}
+
+/* ============ MOTION ============ */
+@media(prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important}
+}
 </style>
 </head>
 <body>
 
-<header>
-<div class="hdr">
-  <div class="logo" onclick="go('/')">
-    <svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="62" fill="none" stroke="#0b0b0b" stroke-width="5"/><path d="M70 22 C56 46 86 58 70 80 C56 100 84 108 70 122" fill="none" stroke="#0b0b0b" stroke-width="7" stroke-linecap="round"/><circle cx="94" cy="38" r="5" fill="#A8956B"/></svg>
-    <span class="logo-name">SAJA</span>
+<header class="nav" id="nav">
+  <nav class="nav-links left" id="navBar"></nav>
+  <div class="brand" onclick="go('/')">
+    <svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="62" fill="none" stroke="currentColor" stroke-width="5"/><path d="M70 22 C56 46 86 58 70 80 C56 100 84 108 70 122" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="94" cy="38" r="5" fill="var(--muted)"/></svg>
+    SAJA
   </div>
-  <nav class="hdr-nav" id="navBar"></nav>
-  <div class="hdr-right">
+  <div class="hdr-right nav-links right">
     <button class="hdr-cur" id="curBtn" onclick="toggleCountry()"></button>
     <button class="hdr-icon" onclick="go('/track')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/></svg></button>
     <button class="hdr-icon" onclick="go('/cart')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="count" id="cartCount">0</span></button>
   </div>
-</div>
 </header>
 
 <!-- ============ HOME ============ -->
@@ -253,7 +289,8 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
       <div class="hero-slide">
         <img src="/products/lace/Black/c-2351-black-crystal-lace-abaya.jpg" alt="SAJA Collection">
         <div class="hero-overlay"><div class="hero-text">
-          <h1>Stillness, worn.</h1>
+          <span class="eyebrow" style="color:rgba(245,246,246,.6)">The Atelier</span>
+          <h1 style="font-size:clamp(32px,5vw,56px)">Stillness, <em>worn.</em></h1>
           <p>Minimal abayas, custom-fitted in our Karachi atelier. Precision over embellishment.</p>
           <button class="hero-btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Collection</button>
         </div></div>
@@ -261,7 +298,8 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
       <div class="hero-slide">
         <img src="/products/premium-gold/Black Gold/c-2273-01-premium-black-gold-abaya.png" alt="Premium Gold">
         <div class="hero-overlay"><div class="hero-text">
-          <h1>Premium Gold Collection</h1>
+          <span class="eyebrow" style="color:rgba(245,246,246,.6)">Premium</span>
+          <h1 style="font-size:clamp(32px,5vw,56px)">Premium <em>Gold</em></h1>
           <p>Gold jacquard motifs on luxurious black. Statement evening wear.</p>
           <button class="hero-btn" onclick="renderTabs('premium');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Premium</button>
         </div></div>
@@ -269,7 +307,8 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
       <div class="hero-slide">
         <img src="/products/dantel/Butterscotch/butterscotch_dantel_abaya.png" alt="Dantel Collection">
         <div class="hero-overlay"><div class="hero-text">
-          <h1>Dantel Collection</h1>
+          <span class="eyebrow" style="color:rgba(245,246,246,.6)">New Arrival</span>
+          <h1 style="font-size:clamp(32px,5vw,56px)">Dantel <em>Collection</em></h1>
           <p>Intricate lace trim detailing. 9 colours. Ready to wear across Pakistan.</p>
           <button class="hero-btn" onclick="renderTabs('dantel');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Dantel</button>
         </div></div>
@@ -278,7 +317,7 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
     <div class="hero-dots" id="heroDots"></div>
   </div>
 
-  <div class="feat-strip"><div class="container">
+  <div class="feat-strip reveal"><div class="container">
     <div class="feat-grid">
       <div class="feat"><h4>Made-to-Measure</h4><p>Custom fitting via WhatsApp</p></div>
       <div class="feat"><h4>Own Atelier</h4><p>Stitched in-house in Karachi</p></div>
@@ -288,7 +327,8 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
   </div></div>
 
   <div class="products" id="shop"><div class="container">
-    <div class="sec-title">The Collection</div>
+    <span class="eyebrow">The Edit</span>
+    <div class="sec-title">The <em>Collection</em></div>
     <div class="sec-sub">Minimal abayas for everyday and evening</div>
     <div class="filter-row" id="tabs"></div>
     <div class="pgrid" id="grid"></div>
@@ -307,14 +347,14 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
 
 <!-- ============ CART ============ -->
 <div id="view-cart" class="view"><div class="cart-wrap">
-  <div class="cart-title">Shopping Bag</div>
+  <div class="cart-title">Shopping <em>Bag</em></div>
   <div class="cart-count-txt" id="cartSummary"></div>
   <div id="cartArea"></div>
 </div></div>
 
 <!-- ============ TRACK ============ -->
-<div id="view-track" class="view"><div class="cart-wrap" style="padding-top:40px">
-  <div class="cart-title">Track Your Order</div>
+<div id="view-track" class="view"><div class="cart-wrap">
+  <div class="cart-title">Track Your <em>Order</em></div>
   <div style="margin-top:20px">
     <div class="field"><label>Order Number</label><input id="t_no" placeholder="SJ..."></div>
     <div class="field"><label>Phone Number</label><input id="t_phone" placeholder="03XX XXXXXXX"></div>
@@ -328,7 +368,7 @@ footer .fpay{font-size:10px;color:rgba(255,255,255,.35)}
 <div class="modal-box">
   <button class="close" onclick="$('sizeGuideModal').classList.remove('open')">&#10005;</button>
   <h3>Size Guide</h3>
-  <p style="font-size:11px;color:var(--muted);margin-bottom:10px">All measurements in centimeters.</p>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:10px;font-weight:300">All measurements in centimeters.</p>
   <table class="sg-table">
     <thead><tr><th>Size</th><th>Shoulder</th><th>Bust</th><th>Sleeve</th><th>Length</th></tr></thead>
     <tbody>
@@ -406,7 +446,7 @@ async function boot(){
   PRODUCTS=p;CONFIG=c;setCurBtn();updateCount();
   $('footerWa').onclick=()=>window.open('https://wa.me/'+CONFIG.whatsapp,'_blank');
   $('navBar').innerHTML=[['all','All'],['dantel','Dantel'],['lace','Lace'],['embroidered','Embroidered'],['floral','Floral'],['printed','Printed'],['plain','Plain'],['premium','Premium']].map(([k,l])=>`<a onclick="go('/');setTimeout(()=>renderTabs('${k}'),50);document.getElementById('shop').scrollIntoView({behavior:'smooth'})">${l}</a>`).join('');
-  renderTabs('all');initHero();route();
+  renderTabs('all');initHero();route();initMotion();
 }
 function setCurBtn(){$('curBtn').textContent=country==='PK'?'PKR':'AED';}
 function toggleCountry(){country=country==='AE'?'PK':'AE';localStorage.setItem('saja_country',country);setCurBtn();renderTabs(curTab);toast(country==='PK'?'PKR prices':'AED prices');if($('view-product').classList.contains('active')&&sel.handle)renderProduct(sel.handle);if($('view-cart').classList.contains('active'))renderCart();}
@@ -420,10 +460,12 @@ function renderTabs(t){
   [...$('navBar').children].forEach((n,i)=>n.classList.toggle('on',tabs[i]&&tabs[i][0]===t));
   const list=PRODUCTS.filter(p=>t==='all'||p.tier===t);
   $('grid').innerHTML=list.map(p=>`
-    <div class="pc" onclick="go('/product/${p.handle}')">
+    <div class="pc reveal" onclick="go('/product/${p.handle}')">
       <div class="pc-img"><img loading="lazy" src="${p.image}" alt="${p.name}">${p.compare_aed?'<div class="pc-sale">Sale</div>':''}</div>
+      <div class="tag"><div class="k">${TIER_LABELS[p.tier]||p.tier}</div><div class="n">${p.name}</div><div class="more">View details &rarr;</div></div>
       <div class="pc-body"><div class="pc-name">${p.name}</div><div class="pc-sub">${p.fabrics[0]}</div><div class="pc-price">${fmt(px(p.price_aed))}${p.compare_aed?`<s>${fmt(px(p.compare_aed))}</s>`:''}</div></div>
     </div>`).join('');
+  initMotion();
 }
 
 let sel={};
@@ -436,16 +478,16 @@ function renderProduct(handle){
   const imgs=p.images||[p.image];
   $('pdp-gallery').innerHTML=imgs.map((img,i)=>`<div class="gal-img${i===0?' gal-hero':''}"><img src="${img}" alt="${p.name}"></div>`).join('');
   $('pdp-info').innerHTML=`
-    <div class="pi-tier">${TIER_LABELS[p.tier]}</div>
-    <h1>${p.name}</h1>
+    <span class="eyebrow">${TIER_LABELS[p.tier]}</span>
+    <h1 style="font-size:32px">${p.name}</h1>
     <div class="pi-price" id="pdp-price">${fmt(px(p.price_aed))}${p.compare_aed?` <s>${fmt(px(p.compare_aed))}</s>`:''}</div>
     <p class="pi-desc">${p.description}</p>
     <div class="opt-sec"><div class="opt-lbl">Fabric <span class="val" id="fabricName">${sel.fabric}</span></div><div class="opts">${p.fabrics.map(f=>`<button class="opt ${f===sel.fabric?'on':''}" onclick="pickFabric('${f}',this)">${f}</button>`).join('')}</div><div class="opt-desc" id="fabricDesc">${FABRIC_INFO[sel.fabric]?.desc||''}</div></div>
     <div class="opt-sec"><div class="opt-lbl">Colour <span class="val" id="colName">${sel.color}</span></div><div class="opts">${p.colors.map(c=>`<button class="dot ${c===sel.color?'on':''}" title="${c}" style="background:${COLOR_HEX[c]||'#999'}" onclick="pickColor('${c}',this)"></button>`).join('')}</div></div>
-    ${isAtelier?`<div class="opt-sec"><div class="opt-lbl">Size</div><p style="font-size:12px;color:#6e5e38;padding:12px 16px;background:var(--gold-soft);border-radius:var(--radius);line-height:1.6">Fully custom. Enter your measurements below.</p></div>`:`
+    ${isAtelier?`<div class="opt-sec"><div class="opt-lbl">Size</div><p style="font-size:12px;color:var(--ink-soft);padding:12px 16px;background:var(--bg-soft);line-height:1.6">Fully custom. Enter your measurements below.</p></div>`:`
     <div class="opt-sec"><div class="opt-lbl">Size <span class="val" id="sizeName">${sel.size}</span> <span class="sg-link" onclick="$('sizeGuideModal').classList.add('open')">Size Guide</span></div><div class="opts" id="sizeOpts">${p.sizes.map(s=>`<button class="opt ${s===sel.size?'on':''}" onclick="pickSize('${s}',this)">${s}</button>`).join('')}</div>
-    <label class="custom-toggle" id="customCheck"><input type="checkbox" onchange="toggleCustom(this.checked)"><div><span style="font-weight:600;font-size:12px">Made to my measurements</span><br><span style="font-size:11px;color:var(--muted)">+ ${fmt(px(60))}</span></div></label></div>`}
-    <div id="measureBox" style="display:${isAtelier?'block':'none'}"><div class="opt-sec"><div class="opt-lbl">Measurements (cm)</div><div class="measures"><div><label>Shoulder</label><input id="m_shoulder" type="number" inputmode="decimal" placeholder="38"></div><div><label>Bust</label><input id="m_bust" type="number" inputmode="decimal" placeholder="96"></div><div><label>Sleeve</label><input id="m_sleeve" type="number" inputmode="decimal" placeholder="58"></div><div><label>Length</label><input id="m_length" type="number" inputmode="decimal" placeholder="140"></div><div><label>Waist</label><input id="m_waist" type="number" inputmode="decimal" placeholder="78"></div><div><label>Hip</label><input id="m_hip" type="number" inputmode="decimal" placeholder="102"></div></div><div style="margin-top:10px"><label style="font-size:10px;color:var(--muted);font-weight:500;display:block;margin-bottom:3px">Notes for Tailor</label><textarea id="m_notes" placeholder="e.g. looser sleeves (English / Urdu)"></textarea></div><div class="measure-note">Our tailor confirms every measurement on WhatsApp before cutting.</div></div></div>
+    <label class="custom-toggle" id="customCheck"><input type="checkbox" onchange="toggleCustom(this.checked)"><div><span style="font-weight:500;font-size:12px">Made to my measurements</span><br><span style="font-size:11px;color:var(--muted)">+ ${fmt(px(60))}</span></div></label></div>`}
+    <div id="measureBox" style="display:${isAtelier?'block':'none'}"><div class="opt-sec"><div class="opt-lbl">Measurements (cm)</div><div class="measures"><div><label>Shoulder</label><input id="m_shoulder" type="number" inputmode="decimal" placeholder="38"></div><div><label>Bust</label><input id="m_bust" type="number" inputmode="decimal" placeholder="96"></div><div><label>Sleeve</label><input id="m_sleeve" type="number" inputmode="decimal" placeholder="58"></div><div><label>Length</label><input id="m_length" type="number" inputmode="decimal" placeholder="140"></div><div><label>Waist</label><input id="m_waist" type="number" inputmode="decimal" placeholder="78"></div><div><label>Hip</label><input id="m_hip" type="number" inputmode="decimal" placeholder="102"></div></div><div style="margin-top:10px"><label style="font-size:10px;color:var(--muted);font-weight:400;display:block;margin-bottom:3px">Notes for Tailor</label><textarea id="m_notes" placeholder="e.g. looser sleeves (English / Urdu)"></textarea></div><div class="measure-note">Our tailor confirms every measurement on WhatsApp before cutting.</div></div></div>
     <div class="opt-sec"><div class="opt-lbl">Quantity</div><div class="qty-row"><button onclick="sel.qty=Math.max(1,sel.qty-1);$('qtyVal').textContent=sel.qty;updPrice()">&#8722;</button><span id="qtyVal">1</span><button onclick="sel.qty=Math.min(10,sel.qty+1);$('qtyVal').textContent=sel.qty;updPrice()">+</button></div></div>
     <button class="add-btn" onclick="addToCart()">Add to Bag &mdash; <span id="pdpTotal">${fmt(px(p.price_aed))}</span></button>
     <div class="pdp-accord">
@@ -454,7 +496,7 @@ function renderProduct(handle){
       <div class="acc-item"><div class="acc-head" onclick="this.parentElement.classList.toggle('open')">Returns</div><div class="acc-body">Exchange within 7 days (unworn, tags attached). Custom pieces covered by our remake guarantee.</div></div>
     </div>`;
   const rel=PRODUCTS.filter(x=>x.tier===p.tier&&x.handle!==handle).slice(0,4);
-  $('pdp-related').innerHTML=rel.length?`<div style="font-family:var(--heading);font-size:24px;font-weight:400;margin-bottom:20px">You May Also Like</div><div class="pgrid">${rel.map(r=>`<div class="pc" onclick="go('/product/${r.handle}')"><div class="pc-img"><img loading="lazy" src="${r.image}" alt="${r.name}"></div><div class="pc-body"><div class="pc-name">${r.name}</div><div class="pc-price">${fmt(px(r.price_aed))}</div></div></div>`).join('')}</div>`:'';
+  $('pdp-related').innerHTML=rel.length?`<span class="eyebrow">More from ${TIER_LABELS[p.tier]}</span><div style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:300;margin:8px 0 20px">You May Also <em>Like</em></div><div class="pgrid">${rel.map(r=>`<div class="pc" onclick="go('/product/${r.handle}')"><div class="pc-img"><img loading="lazy" src="${r.image}" alt="${r.name}"></div><div class="pc-body"><div class="pc-name">${r.name}</div><div class="pc-price">${fmt(px(r.price_aed))}</div></div></div>`).join('')}</div>`:'';
 }
 
 function pickFabric(f,el){sel.fabric=f;[...el.parentElement.children].forEach(x=>x.classList.remove('on'));el.classList.add('on');$('fabricName').textContent=f;$('fabricDesc').textContent=FABRIC_INFO[f]?.desc||'';if($('accordFabric'))$('accordFabric').textContent=FABRIC_INFO[f]?.desc||'';}
@@ -467,13 +509,13 @@ function addToCart(){const p=PRODUCTS.find(x=>x.handle===sel.handle);const item=
 let quote=null,paying='cod',promo='';
 async function renderCart(){
   $('cartSummary').textContent=cart.length+' item'+(cart.length!==1?'s':'');
-  if(!cart.length){$('cartArea').innerHTML=`<div style="text-align:center;padding:60px 0"><p style="color:var(--muted)">Your bag is empty.</p><button class="add-btn" style="max-width:220px;margin:16px auto 0" onclick="go('/')">Continue Shopping</button></div>`;return;}
+  if(!cart.length){$('cartArea').innerHTML=`<div style="text-align:center;padding:60px 0"><p style="color:var(--muted);font-weight:300">Your bag is empty.</p><button class="add-btn" style="max-width:220px;margin:16px auto 0" onclick="go('/')">Continue Shopping</button></div>`;return;}
   const methods=Object.entries(CONFIG.paymentMethods).filter(([k,m])=>m[country]);
   if(!methods.find(([k])=>k===paying))paying=methods[0]?.[0]||'cod';
   $('cartArea').innerHTML=cart.map((it,i)=>{const p=PRODUCTS.find(x=>x.handle===it.handle);return`<div class="cline"><img src="${p.image}" alt="" onclick="go('/product/${p.handle}')"><div class="ci"><b>${p.name}</b><div class="meta">${it.fabric} / ${it.color} / ${it.size}</div><div class="cp">${fmt(px(p.price_aed))}</div><div class="cq"><button onclick="chQty(${i},-1)">&#8722;</button><span>${it.qty}</span><button onclick="chQty(${i},1)">+</button></div></div><button class="rm" onclick="rmItem(${i})">Remove</button></div>`;}).join('')+`
     <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--line)">
     <div class="field"><label>Promo Code</label><div style="display:flex;gap:8px"><input id="promoIn" placeholder="SAJA20" value="${promo}" style="text-transform:uppercase"><button class="add-btn" style="width:auto;padding:12px 20px;margin:0" onclick="promo=$('promoIn').value;refreshQuote()">Apply</button></div></div>
-    <div style="font-family:var(--heading);font-size:22px;font-weight:400;margin:28px 0 14px">Delivery Details</div>
+    <div style="font-family:var(--serif);font-size:clamp(22px,3vw,28px);font-weight:300;margin:28px 0 14px">Delivery <em>Details</em></div>
     <div class="row2"><div class="field"><label>Full Name</label><input id="f_name"></div><div class="field"><label>WhatsApp Number</label><input id="f_phone" placeholder="03XX XXXXXXX"></div></div>
     <div class="field"><label>Email (optional)</label><input id="f_email" type="email" placeholder="you@example.com"></div>
     <div class="row2"><div class="field"><label>Country</label><select id="f_country" onchange="country=this.value;localStorage.setItem('saja_country',country);setCurBtn();renderCart()"><option value="PK" ${country==='PK'?'selected':''}>Pakistan</option><option value="AE" ${country==='AE'?'selected':''}>UAE</option></select></div><div class="field"><label>City</label><input id="f_city" placeholder="Karachi, Lahore..."></div></div>
@@ -488,8 +530,43 @@ function chQty(i,d){cart[i].qty=Math.max(1,(cart[i].qty||1)+d);save();renderCart
 function rmItem(i){cart.splice(i,1);save();updateCount();renderCart();}
 async function refreshQuote(){const r=await fetch('/api/orders/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cart,country,payment_method:paying,promo})});const d=await r.json();if(!r.ok){$('totals').innerHTML='';$('err').textContent=d.error;return;}quote=d;$('err').textContent='';$('totals').innerHTML=`<div class="tr"><span>Subtotal</span><span>${d.currency} ${d.subtotal.toLocaleString()}</span></div>${d.discount?`<div class="tr"><span>Discount</span><span style="color:#2d7a4f">-${d.currency} ${d.discount.toLocaleString()}</span></div>`:''}${d.cod_fee?`<div class="tr"><span>COD</span><span>${d.currency} ${d.cod_fee.toLocaleString()}</span></div>`:''}<div class="tr"><span>Delivery</span><span style="color:#2d7a4f">Free</span></div><div class="tr big"><span>Total</span><span>${d.currency} ${d.total.toLocaleString()}</span></div>`;}
 async function placeOrder(){$('placeBtn').disabled=true;$('placeBtn').textContent='Placing...';const body={items:cart,country,payment_method:paying,promo,customer_name:$('f_name').value,phone:$('f_phone').value,email:$('f_email').value||undefined,city:$('f_city').value,address:$('f_addr').value};const r=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();$('placeBtn').disabled=false;$('placeBtn').textContent='Place Order';if(!r.ok){$('err').textContent=d.error;return;}cart=[];save();updateCount();const wa=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent('Assalam o Alaikum! My SAJA order is '+d.order_no)}`;$('cartArea').innerHTML=`<div class="ok-screen"><h3>Shukriya!</h3><p>Order <b>${d.order_no}</b> &middot; ${d.currency} ${d.total.toLocaleString()}<br><br>${d.payment.kind==='instructions'?d.payment.instructions:'We will WhatsApp you shortly.'}</p><a class="wa-btn" target="_blank" href="${wa}">Message on WhatsApp</a></div>`;}
-async function trackOrder(){const no=$('t_no').value.trim(),phone=$('t_phone').value.trim();if(!no||!phone){$('trackResult').innerHTML='<p class="err">Enter order number and phone.</p>';return;}const r=await fetch('/api/orders/'+encodeURIComponent(no)+'?phone='+encodeURIComponent(phone));if(!r.ok){$('trackResult').innerHTML='<p class="err">Order not found.</p>';return;}const o=await r.json();const steps=['new','confirmed','stitching','qc','shipped','delivered'];const labels={new:'Received',confirmed:'Confirmed',stitching:'Stitching',qc:'QC',shipped:'Shipped',delivered:'Delivered'};const idx=steps.indexOf(o.status);$('trackResult').innerHTML=`<div style="border:1px solid var(--line);padding:20px;border-radius:var(--radius);margin-top:16px"><div style="display:flex;justify-content:space-between;margin-bottom:16px"><div><strong>${o.order_no}</strong><br><span style="font-size:11px;color:var(--muted)">${o.created_at}</span></div><div style="text-align:right"><b>${o.currency} ${o.total.toLocaleString()}</b><br><span class="badge">${o.payment_status}</span></div></div><div style="display:flex;gap:4px;margin-bottom:16px">${steps.map((s,i)=>`<div style="flex:1;text-align:center"><div style="height:3px;border-radius:2px;background:${i<=idx?'var(--gold)':'var(--line)'};margin-bottom:5px"></div><span style="font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:${i<=idx?'var(--ink)':'var(--muted)'};font-weight:${i===idx?'700':'400'}">${labels[s]}</span></div>`).join('')}</div>${o.items.map(i=>`<div style="font-size:12px;padding:6px 0;border-top:1px solid var(--line)"><b>${i.name}</b> x${i.qty} — ${i.fabric}, ${i.color}, ${i.size}</div>`).join('')}</div>`;}
+async function trackOrder(){const no=$('t_no').value.trim(),phone=$('t_phone').value.trim();if(!no||!phone){$('trackResult').innerHTML='<p class="err">Enter order number and phone.</p>';return;}const r=await fetch('/api/orders/'+encodeURIComponent(no)+'?phone='+encodeURIComponent(phone));if(!r.ok){$('trackResult').innerHTML='<p class="err">Order not found.</p>';return;}const o=await r.json();const steps=['new','confirmed','stitching','qc','shipped','delivered'];const labels={new:'Received',confirmed:'Confirmed',stitching:'Stitching',qc:'QC',shipped:'Shipped',delivered:'Delivered'};const idx=steps.indexOf(o.status);$('trackResult').innerHTML=`<div style="border:1px solid var(--line);padding:20px;margin-top:16px"><div style="display:flex;justify-content:space-between;margin-bottom:16px"><div><strong>${o.order_no}</strong><br><span style="font-size:11px;color:var(--muted)">${o.created_at}</span></div><div style="text-align:right"><b style="font-family:var(--serif)">${o.currency} ${o.total.toLocaleString()}</b><br><span class="badge">${o.payment_status}</span></div></div><div style="display:flex;gap:4px;margin-bottom:16px">${steps.map((s,i)=>`<div style="flex:1;text-align:center"><div style="height:3px;background:${i<=idx?'var(--slate)':'var(--line)'};margin-bottom:5px"></div><span style="font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:${i<=idx?'var(--ink)':'var(--muted)'};font-weight:${i===idx?'500':'300'}">${labels[s]}</span></div>`).join('')}</div>${o.items.map(i=>`<div style="font-size:12px;padding:6px 0;border-top:1px solid var(--line)"><b>${i.name}</b> x${i.qty} — ${i.fabric}, ${i.color}, ${i.size}</div>`).join('')}</div>`;}
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+
+/* ============ ELARA MOTION ============ */
+function initMotion(){
+  // nav blur-on-scroll
+  const nav=document.getElementById('nav');
+  if(nav&&!nav._scrollWired){nav._scrollWired=true;addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));}
+
+  // product card 3D tilt
+  document.querySelectorAll('.pc:not([data-tilt])').forEach(card=>{
+    card.dataset.tilt='1';
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-.5;
+      const py=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateY(${px*9}deg) rotateX(${-py*9}deg) translateZ(10px)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
+
+  // scroll reveal
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        en.target.style.transitionDelay=(en.target.dataset.delay||0)+'ms';
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal:not(.in)').forEach((el,i)=>{
+    if(el.classList.contains('pc'))el.dataset.delay=(i%4)*90;
+    io.observe(el);
+  });
+}
+
 boot();
 </script>
 </body>
